@@ -1,28 +1,54 @@
 @use '../variables' as var;
 
-
 header {
- 
+    display: flex;
+    flex-direction: column;
+    background-color: var.$primary-background-color;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    position: fixed;
+    z-index: 999;
 }
 
 .header__logo {
-
+    padding-top: 1rem;
 }
 
 
 .navheader {
     //Nav header base class
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 
     // Parent list class
     &__list {
+        @extend .navheader;
+        list-style: none;
+        padding: 0rem;
     }
 
     //List Item Class
     &__list--listitem {
-
         //List Item Link Class
+        @extend .navheader;
+        justify-content: center;
+
         &__link {
+            width: 100%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            padding-bottom: 1rem;
+            color: var.$inactive-cta-text-color;
+            text-align: center;
         }
     }
+}
 
+.active {
+    border-bottom: 0.3rem solid var.$divider-line-color; 
+    font-weight: bold;
+    text-decoration: none;
+    color: var.$primary-text-color-dark-background;   
 }

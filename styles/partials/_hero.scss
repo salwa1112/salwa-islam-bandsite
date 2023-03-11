@@ -1,0 +1,13 @@
+.hero__container {
+    //Hero container base 
+    display: flex;
+    width: 100%;
+    padding-top: 4rem;
+
+    &--content {
+        @extend .hero__container;
+        background-image: url('/assets/images/hero-bio.jpg');
+        align-items: center;
+        height: rem;
+    }
+}

@@ -1,1 +1,53 @@
-/*# sourceMappingURL=bio.css.map */
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #323232;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  position: fixed;
+  z-index: 999;
+}
+
+.header__logo {
+  padding-top: 1rem;
+}
+
+.navheader, .navheader__list--listitem, .navheader__list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.navheader__list {
+  list-style: none;
+  padding: 0rem;
+}
+.navheader__list--listitem {
+  justify-content: center;
+}
+.navheader__list--listitem__link {
+  width: 100%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding-bottom: 1rem;
+  color: #AFAFAF;
+  text-align: center;
+}
+
+.active {
+  border-bottom: 0.3rem solid #E1E1E1;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.hero__container, .hero__container--content {
+  display: flex;
+  width: 100%;
+  padding-top: 4rem;
+}
+.hero__container--content {
+  background-image: url("/assets/images/hero-bio.jpg");
+  align-items: center;
+  height: rem;
+}/*# sourceMappingURL=bio.css.map */

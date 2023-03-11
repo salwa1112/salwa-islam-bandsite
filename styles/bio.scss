@@ -1,3 +1,5 @@
-@use './variables' as global-var;
+@use './variables';
 @use './partials/header';
+@use './partials/hero';
 @use './partials/footer';
+@use './partials/gallery';
