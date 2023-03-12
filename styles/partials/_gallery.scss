@@ -1,0 +1,26 @@
+@use '../variables' as *;
+
+.gallery__container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: $secondary-light-background-color;
+    
+    &--title {
+        @extend .gallery__container;
+        padding: 1rem;
+
+    }
+    
+    &--list {
+        list-style: none;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+
+        &__listitem--photo {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+}

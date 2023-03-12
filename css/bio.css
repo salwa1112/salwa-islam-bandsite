@@ -106,7 +106,70 @@ header {
   line-height: 2rem;
   font-weight: 600;
 }
+.about__container--content__history {
+  padding-top: 24px;
+}
+.about__container--content__history--title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.about__container--content__history--description {
+  display: block;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  font-size: 14px;
+  line-height: 1.125rem;
+  font-weight: 300;
+}
+.about__container--content__history--description p:first-child {
+  margin-bottom: 1rem;
+}
 
 .quote::before, .quote::after {
   content: '"';
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  background-color: #323232;
+  color: #FFFFFF;
+}
+.footer__container__header {
+  padding: 1rem;
+}
+.footer__container__social--title {
+  font-family: "Avenir Demi", sans-serif;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+.footer__container__social__icons, .footer__container__social__icons--twitter, .footer__container__social__icons--facebook, .footer__container__social__icons--instagram {
+  padding-right: 2rem;
+  height: 1.5rem;
+}
+.footer__container--copyright:before {
+  content: url("/assets/logos/Logo-bandsite.svg");
+  display: flex;
+}
+
+.gallery__container, .gallery__container--title {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #FAFAFA;
+}
+.gallery__container--title {
+  padding: 1rem;
+}
+.gallery__container--list {
+  list-style: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.gallery__container--list__listitem--photo {
+  width: 100%;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=bio.css.map */

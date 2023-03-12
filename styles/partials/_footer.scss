@@ -1,0 +1,54 @@
+@use '../variables' as *;
+
+//Footer class base
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-background-color;
+    color: $primary-text-color-dark-background;
+    
+    //Footer container header
+    &__header {
+        padding: 1rem;
+    }
+
+    &__social {
+
+        &--title {
+            font-family: 'Avenir Demi', sans-serif;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            font-size: 1.75rem;
+            font-weight: 500;
+        }
+
+        &__icons {
+           //padding-top: 1rem;
+            padding-right: 2rem;      
+            height: 1.5rem;
+
+
+            &--instagram {
+                @extend .footer__container__social__icons;
+            } 
+            
+            &--facebook {
+                @extend .footer__container__social__icons;
+            } 
+
+            &--twitter {
+                @extend .footer__container__social__icons;
+            } 
+        }
+
+    }
+
+    &--copyright {
+        &:before {
+            content: url('/assets/logos/Logo-bandsite.svg');
+            display: flex;
+        }
+    }
+
+}
+
