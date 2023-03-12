@@ -10,6 +10,7 @@
     //Footer container header
     &__header {
         padding: 1rem;
+        
     }
 
     &__social {
@@ -23,7 +24,6 @@
         }
 
         &__icons {
-           //padding-top: 1rem;
             padding-right: 2rem;      
             height: 1.5rem;
 
@@ -43,12 +43,50 @@
 
     }
 
-    &--copyright {
-        &:before {
-            content: url('/assets/logos/Logo-bandsite.svg');
-            display: flex;
+    
+
+    &__contact {
+        padding-left: 1rem;
+        padding-top: 1rem;
+
+        &--info {
+            padding-bottom: 1.5rem;
+
+            &__title {
+                @extend .footer__container__contact--info;
+                font-family: 'Avenir Demi', sans-serif;
+                font-size: 1rem;
+                line-height: 1.125rem;
+                font-weight: 600;
+                
+            }
+
+            &__address {
+                @extend .footer__container__contact--info;
+                font-size: 1rem;
+            }
+
+            &__email a {
+                @extend .footer__container__contact--info;
+                font-size: 0.875rem;
+                font-weight: 400;
+                text-decoration: none;
+                color: $primary-text-color-dark-background;
+            }
         }
     }
 
+    &--copyright {
+        @extend .footer__container__contact;
+        font-size: 0.75rem;
+        
+
+        &:before {
+            padding-top: 2rem;
+            content: url('/assets/logos/Logo-bandsite.svg');
+            display: flex;
+            padding-bottom: 1rem;
+        }
+    }
 }
 

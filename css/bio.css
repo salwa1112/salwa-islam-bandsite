@@ -1,12 +1,3 @@
-@font-face {
-  font-family: "Avenir";
-  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
-  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
-}
-@font-face {
-  font-family: "Avenir Demi";
-  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("otf");
-}
 header {
   display: flex;
   flex-direction: column;
@@ -150,9 +141,36 @@ header {
   padding-right: 2rem;
   height: 1.5rem;
 }
+.footer__container__contact, .footer__container--copyright {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+.footer__container__contact--info, .footer__container__contact--info__email a, .footer__container__contact--info__address, .footer__container__contact--info__title {
+  padding-bottom: 1.5rem;
+}
+.footer__container__contact--info__title {
+  font-family: "Avenir Demi", sans-serif;
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: 600;
+}
+.footer__container__contact--info__address {
+  font-size: 1rem;
+}
+.footer__container__contact--info__email a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.footer__container--copyright {
+  font-size: 0.75rem;
+}
 .footer__container--copyright:before {
+  padding-top: 2rem;
   content: url("/assets/logos/Logo-bandsite.svg");
   display: flex;
+  padding-bottom: 1rem;
 }
 
 .gallery__container, .gallery__container--title {
@@ -172,4 +190,14 @@ header {
 .gallery__container--list__listitem--photo {
   width: 100%;
   margin-bottom: 1rem;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+}
+@font-face {
+  font-family: "Avenir Demi";
+  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("otf");
 }/*# sourceMappingURL=bio.css.map */
