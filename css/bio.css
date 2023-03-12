@@ -127,8 +127,32 @@ header {
   background-color: #323232;
   color: #FFFFFF;
 }
+@media (min-width: 768px) {
+  .footer__container {
+    padding-top: 2.5rem;
+  }
+}
 .footer__container__header {
   padding: 1rem;
+}
+@media (min-width: 768px) {
+  .footer__container__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer__container__header:after {
+    content: url("/assets/logos/Logo-bandsite-tablet.svg");
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .footer__container__social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .footer__container__social--title {
   font-family: "Avenir Demi", sans-serif;
@@ -137,16 +161,39 @@ header {
   font-size: 1.75rem;
   font-weight: 500;
 }
+@media (min-width: 768px) {
+  .footer__container__social--title {
+    font-size: 2.75rem;
+    font-weight: 600;
+  }
+}
 .footer__container__social__icons, .footer__container__social__icons--twitter, .footer__container__social__icons--facebook, .footer__container__social__icons--instagram {
   padding-right: 2rem;
   height: 1.5rem;
 }
-.footer__container__contact, .footer__container--copyright {
-  padding-left: 1rem;
-  padding-top: 1rem;
+@media (min-width: 768px) {
+  .footer__container__social__icons, .footer__container__social__icons--twitter, .footer__container__social__icons--facebook, .footer__container__social__icons--instagram {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+    height: 2rem;
+  }
 }
-.footer__container__contact--info, .footer__container__contact--info__email a, .footer__container__contact--info__address, .footer__container__contact--info__title {
+.footer__container__contact, .footer__container--copyright {
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .footer__container__contact, .footer__container--copyright {
+    display: flex;
+  }
+}
+.footer__container__contact--info, .footer__container__contact--info__email, .footer__container__contact--info__address, .footer__container__contact--info__title {
   padding-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .footer__container__contact--info, .footer__container__contact--info__email, .footer__container__contact--info__address, .footer__container__contact--info__title {
+    padding-right: 1rem;
+    width: auto;
+  }
 }
 .footer__container__contact--info__title {
   font-family: "Avenir Demi", sans-serif;
@@ -154,23 +201,63 @@ header {
   line-height: 1.125rem;
   font-weight: 600;
 }
+@media (min-width: 768px) {
+  .footer__container__contact--info__title {
+    padding-top: 2rem;
+  }
+}
 .footer__container__contact--info__address {
   font-size: 1rem;
 }
-.footer__container__contact--info__email a {
+@media (min-width: 768px) {
+  .footer__container__contact--info__address {
+    padding-top: 1.5rem;
+  }
+}
+.footer__container__contact--info__email {
   font-size: 0.875rem;
   font-weight: 400;
+}
+@media (min-width: 768px) {
+  .footer__container__contact--info__email {
+    font-size: 1rem;
+    position: relative;
+    padding-top: 1.5rem;
+  }
+}
+.footer__container__contact--info__email a {
   text-decoration: none;
   color: #FFFFFF;
 }
+@media (min-width: 768px) {
+  .footer__container__contact--info__email a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
 .footer__container--copyright {
   font-size: 0.75rem;
+  padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .footer__container--copyright {
+    padding-bottom: 3rem;
+    padding-top: 5rem;
+    font-size: 1.25rem;
+  }
 }
 .footer__container--copyright:before {
   padding-top: 2rem;
   content: url("/assets/logos/Logo-bandsite.svg");
   display: flex;
   padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .footer__container--copyright:before {
+    display: none;
+  }
 }
 
 .gallery__container, .gallery__container--title {

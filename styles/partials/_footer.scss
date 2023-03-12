@@ -1,4 +1,5 @@
 @use '../variables' as *;
+@use '../partials/mixins' as *;
 
 //Footer class base
 .footer__container {
@@ -6,14 +7,36 @@
     flex-direction: column;
     background-color: $primary-background-color;
     color: $primary-text-color-dark-background;
-    
+
+    @include tablet {
+        padding-top: 2.5rem;
+    }
+
     //Footer container header
     &__header {
         padding: 1rem;
-        
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:after {
+                content: url('/assets/logos/Logo-bandsite-tablet.svg');
+                padding-right: 1rem;
+                padding-top: 0.5rem;
+            }
+        }
     }
 
     &__social {
+
+        // for tablet and desktop the flex direction is row
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
         &--title {
             font-family: 'Avenir Demi', sans-serif;
@@ -21,36 +44,55 @@
             padding-bottom: 1rem;
             font-size: 1.75rem;
             font-weight: 500;
+
+            @include tablet {
+                font-size: 2.75rem;
+                font-weight: 600;
+            }
         }
 
         &__icons {
-            padding-right: 2rem;      
+            padding-right: 2rem;
             height: 1.5rem;
+
+            @include tablet {
+                padding-left: 1.5rem;
+                padding-right: 1rem;
+                height: 2rem;
+            }
 
 
             &--instagram {
                 @extend .footer__container__social__icons;
-            } 
-            
+            }
+
             &--facebook {
                 @extend .footer__container__social__icons;
-            } 
+            }
 
             &--twitter {
                 @extend .footer__container__social__icons;
-            } 
+            }
         }
 
     }
 
-    
+
 
     &__contact {
-        padding-left: 1rem;
-        padding-top: 1rem;
+        padding: 1rem;
+
+        @include tablet {
+            display: flex;
+        }
 
         &--info {
             padding-bottom: 1.5rem;
+
+            @include tablet {
+                padding-right: 1rem;
+                width: auto;
+            }
 
             &__title {
                 @extend .footer__container__contact--info;
@@ -58,20 +100,43 @@
                 font-size: 1rem;
                 line-height: 1.125rem;
                 font-weight: 600;
-                
+
+                @include tablet {
+                    padding-top: 2rem;
+                }
             }
 
             &__address {
                 @extend .footer__container__contact--info;
                 font-size: 1rem;
+
+                @include tablet {
+                    padding-top: 1.5rem;
+                }
             }
 
-            &__email a {
+            &__email {
                 @extend .footer__container__contact--info;
                 font-size: 0.875rem;
                 font-weight: 400;
-                text-decoration: none;
-                color: $primary-text-color-dark-background;
+
+                @include tablet {
+                    font-size: 1rem;
+                    position: relative;
+                    padding-top: 1.5rem;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: $primary-text-color-dark-background;
+                    
+                    @include tablet {
+                        position: absolute;
+                        bottom: 0;
+                        left:0;
+                    }
+                }
+
             }
         }
     }
@@ -79,7 +144,14 @@
     &--copyright {
         @extend .footer__container__contact;
         font-size: 0.75rem;
-        
+        padding-bottom: 1.5rem;
+        padding-top: 0.5rem;
+
+        @include tablet {
+            padding-bottom: 3rem;
+            padding-top: 5rem;
+            font-size: 1.25rem;
+        }
 
         &:before {
             padding-top: 2rem;
@@ -87,6 +159,13 @@
             display: flex;
             padding-bottom: 1rem;
         }
+
+        @include tablet {
+            &:before {
+                display: none;
+            }
+        }
+
+
     }
 }
-
