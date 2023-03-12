@@ -1,9 +1,19 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+}
+@font-face {
+  font-family: "Avenir Demi";
+  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("otf");
+}
 header {
   display: flex;
   flex-direction: column;
   background-color: #323232;
   align-items: center;
   justify-content: space-between;
+  font-family: "Avenir", sans-serif;
   width: 100vw;
   position: fixed;
   z-index: 999;
@@ -11,6 +21,7 @@ header {
 
 .header__logo {
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .navheader, .navheader__list--listitem, .navheader__list {
@@ -27,7 +38,8 @@ header {
 }
 .navheader__list--listitem__link {
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 300;
   text-decoration: none;
   padding-bottom: 1rem;
   color: #AFAFAF;
@@ -36,18 +48,65 @@ header {
 
 .active {
   border-bottom: 0.3rem solid #E1E1E1;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
   color: #FFFFFF;
 }
 
-.hero__container, .hero__container--content {
-  display: flex;
+.hero__container, .hero__container--content, .hero__container--content:before, .hero__container:before {
   width: 100%;
-  padding-top: 4rem;
+  display: flex;
+  padding-top: 6rem;
+}
+.hero__container:before, .hero__container--content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50vh;
+  background-color: #323232;
+  opacity: 0.5;
 }
 .hero__container--content {
   background-image: url("/assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
   align-items: center;
-  height: rem;
+  font-family: "Avenir", sans-serif;
+}
+.hero__container--content__title {
+  color: #FFFFFF;
+  font-weight: 500;
+  padding-left: 1rem;
+  transform: translateY(-3rem);
+}
+
+.about__container, .about__container--content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Avenir", sans-serif;
+}
+.about__container--content {
+  padding: 1rem 1rem 0 1rem;
+}
+.about__container--content__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.about__container--content__image {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+.about__container--content__quote {
+  font-family: "Avenir Demi", sans-serif;
+  padding-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+.quote::before, .quote::after {
+  content: '"';
 }/*# sourceMappingURL=bio.css.map */

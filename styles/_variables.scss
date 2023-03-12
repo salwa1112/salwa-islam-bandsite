@@ -12,3 +12,17 @@ $secondary-light-background-color: #FAFAFA;
 
 // global header color
 $header-background-color: #323232;
+
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('/assets/fonts/AvenirNextLTPro-Bold.otf') format('otf');
+    src: url('/assets/fonts/AvenirNextLTPro-Regular.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'Avenir Demi';
+    src: url('/assets/fonts/AvenirNextLTPro-Demi.otf') format('otf');
+}
+
+

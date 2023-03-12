@@ -6,6 +6,7 @@ header {
     background-color: var.$primary-background-color;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Avenir', sans-serif;
     width: 100vw;
     position: fixed;
     z-index: 999;
@@ -13,6 +14,7 @@ header {
 
 .header__logo {
     padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -37,7 +39,8 @@ header {
 
         &__link {
             width: 100%;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 300;
             text-decoration: none;
             padding-bottom: 1rem;
             color: var.$inactive-cta-text-color;
@@ -48,7 +51,7 @@ header {
 
 .active {
     border-bottom: 0.3rem solid var.$divider-line-color; 
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
     color: var.$primary-text-color-dark-background;   
 }
