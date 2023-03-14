@@ -1,4 +1,5 @@
 @use '../variables' as var;
+@use './mixins' as *;
 
 header {
     display: flex;
@@ -10,11 +11,23 @@ header {
     width: 100vw;
     position: fixed;
     z-index: 999;
+
+    @include tablet {
+        flex-direction: row;       
+        justify-content: flex-start;
+        height: 6.25rem;
+        align-items: end;
+    }
 }
 
 .header__logo {
     padding-top: 1rem;
     padding-bottom: 1rem;
+
+    @include tablet {
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 
 
@@ -23,6 +36,10 @@ header {
     display: flex;
     flex-direction: row;
     width: 100%;
+
+    @include tablet {
+        width: auto;
+    }
 
     // Parent list class
     &__list {
@@ -37,14 +54,22 @@ header {
         @extend .navheader;
         justify-content: center;
 
+        @include tablet {
+            padding-left: 2.25rem;
+        }
+
         &__link {
             width: 100%;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 300;
             text-decoration: none;
             padding-bottom: 1rem;
             color: var.$inactive-cta-text-color;
             text-align: center;
+
+            @include tablet {
+                padding-bottom: 2.25rem;
+            }
         }
     }
 }

@@ -9,16 +9,35 @@ header {
   position: fixed;
   z-index: 999;
 }
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 6.25rem;
+    align-items: end;
+  }
+}
 
 .header__logo {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .header__logo {
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 .navheader, .navheader__list--listitem, .navheader__list {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .navheader, .navheader__list--listitem, .navheader__list {
+    width: auto;
+  }
 }
 .navheader__list {
   list-style: none;
@@ -27,14 +46,24 @@ header {
 .navheader__list--listitem {
   justify-content: center;
 }
+@media (min-width: 768px) {
+  .navheader__list--listitem {
+    padding-left: 2.25rem;
+  }
+}
 .navheader__list--listitem__link {
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
   text-decoration: none;
   padding-bottom: 1rem;
   color: #AFAFAF;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .navheader__list--listitem__link {
+    padding-bottom: 2.25rem;
+  }
 }
 
 .active {
@@ -73,6 +102,11 @@ header {
   padding-left: 1rem;
   transform: translateY(-3rem);
 }
+@media (min-width: 768px) {
+  .hero__container--content__title {
+    font-size: 3rem;
+  }
+}
 
 .about__container, .about__container--content {
   display: flex;
@@ -80,15 +114,29 @@ header {
   font-family: "Avenir", sans-serif;
 }
 .about__container--content {
-  padding: 1rem 1rem 0 1rem;
+  padding: 2rem 1rem 0 1rem;
 }
 .about__container--content__title {
   font-size: 1.5rem;
   font-weight: 700;
 }
+@media (min-width: 768px) {
+  .about__container--content__title {
+    font-size: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+  }
+}
 .about__container--content__image {
   padding-top: 1rem;
   padding-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .about__container--content__image {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
 }
 .about__container--content__quote {
   font-family: "Avenir Demi", sans-serif;
@@ -97,24 +145,56 @@ header {
   line-height: 2rem;
   font-weight: 600;
 }
+@media (min-width: 768px) {
+  .about__container--content__quote {
+    font-size: 1.5rem;
+    line-height: 3rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
 .about__container--content__history {
-  padding-top: 24px;
+  padding-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .about__container--content__history {
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+  }
 }
 .about__container--content__history--title {
   font-size: 1rem;
   font-weight: 600;
+}
+@media (min-width: 768px) {
+  .about__container--content__history--title {
+    font-size: 1.75rem;
+  }
 }
 .about__container--content__history--description {
   display: block;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   padding-right: 1rem;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.125rem;
   font-weight: 300;
 }
 .about__container--content__history--description p:first-child {
   margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .about__container--content__history--description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    display: flex;
+  }
+  .about__container--content__history--description p:first-child {
+    margin-bottom: 0;
+    padding-right: 3rem;
+  }
 }
 
 .quote::before, .quote::after {
@@ -129,7 +209,7 @@ header {
 }
 @media (min-width: 768px) {
   .footer__container {
-    padding-top: 2.5rem;
+    padding-top: 2rem;
   }
 }
 .footer__container__header {
@@ -142,7 +222,7 @@ header {
     align-items: center;
   }
   .footer__container__header:after {
-    content: url("/assets/logos/Logo-bandsite-tablet.svg");
+    content: url("/assets/logos/Logo-bandsite-tablet-footer.svg");
     padding-right: 1rem;
     padding-top: 0.5rem;
   }
@@ -163,7 +243,7 @@ header {
 }
 @media (min-width: 768px) {
   .footer__container__social--title {
-    font-size: 2.75rem;
+    font-size: 2rem;
     font-weight: 600;
   }
 }
@@ -175,7 +255,7 @@ header {
   .footer__container__social__icons, .footer__container__social__icons--twitter, .footer__container__social__icons--facebook, .footer__container__social__icons--instagram {
     padding-left: 1.5rem;
     padding-right: 1rem;
-    height: 2rem;
+    height: 1.5rem;
   }
 }
 .footer__container__contact, .footer__container--copyright {
@@ -197,21 +277,25 @@ header {
 }
 .footer__container__contact--info__title {
   font-family: "Avenir Demi", sans-serif;
-  font-size: 1rem;
+  font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 600;
 }
 @media (min-width: 768px) {
   .footer__container__contact--info__title {
+    font-size: 1rem;
     padding-top: 2rem;
+    line-height: 1.5rem;
   }
 }
 .footer__container__contact--info__address {
-  font-size: 1rem;
+  font-size: 0.8125rem;
 }
 @media (min-width: 768px) {
   .footer__container__contact--info__address {
-    padding-top: 1.5rem;
+    font-size: 1rem;
+    padding-top: 1rem;
+    line-height: 1.5rem;
   }
 }
 .footer__container__contact--info__email {
@@ -222,7 +306,7 @@ header {
   .footer__container__contact--info__email {
     font-size: 1rem;
     position: relative;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
   }
 }
 .footer__container__contact--info__email a {
@@ -239,17 +323,16 @@ header {
 .footer__container--copyright {
   font-size: 0.75rem;
   padding-bottom: 1.5rem;
-  padding-top: 0.5rem;
 }
 @media (min-width: 768px) {
   .footer__container--copyright {
     padding-bottom: 3rem;
-    padding-top: 5rem;
-    font-size: 1.25rem;
+    padding-top: 2rem;
+    font-size: 1rem;
   }
 }
 .footer__container--copyright:before {
-  padding-top: 2rem;
+  padding-top: 1rem;
   content: url("/assets/logos/Logo-bandsite.svg");
   display: flex;
   padding-bottom: 1rem;
@@ -269,14 +352,35 @@ header {
 .gallery__container--title {
   padding: 1rem;
 }
+@media (min-width: 768px) {
+  .gallery__container--title {
+    font-size: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+  }
+}
 .gallery__container--list {
   list-style: none;
   padding-left: 1rem;
   padding-right: 1rem;
 }
+@media (min-width: 768px) {
+  .gallery__container--list {
+    -moz-column-count: 3;
+         column-count: 3;
+    padding: 2rem;
+  }
+}
 .gallery__container--list__listitem--photo {
   width: 100%;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .gallery__container--list__listitem--photo {
+    padding-bottom: 1rem;
+    padding-right: 0.5rem;
+  }
 }
 
 @font-face {

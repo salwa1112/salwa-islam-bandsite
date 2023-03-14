@@ -1,4 +1,6 @@
 @use '../variables' as *;
+@use '../partials/mixins' as *;
+
 
 .gallery__container {
     display: flex;
@@ -10,6 +12,12 @@
         @extend .gallery__container;
         padding: 1rem;
 
+        @include tablet {
+            font-size: 2rem;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            padding-left: 2rem;
+        }
     }
     
     &--list {
@@ -17,10 +25,19 @@
         padding-left: 1rem;
         padding-right: 1rem;
 
+        @include tablet {
+            column-count: 3;
+            padding: 2rem;
+        }
 
         &__listitem--photo {
             width: 100%;
-            margin-bottom: 1rem;
+            padding-bottom: 1rem; 
+            
+            @include tablet {
+                padding-bottom: 1rem;
+                padding-right: 0.5rem;
+            }
         }
     }
 }
