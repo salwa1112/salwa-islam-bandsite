@@ -468,6 +468,17 @@ header {
     padding-right: 0.5rem;
   }
 }
+@media (min-width: 1280px) {
+  .gallery__container--list__listitem--photo {
+    filter: grayscale(1);
+  }
+  .gallery__container--list__listitem--photo:hover {
+    filter: grayscale(0);
+    transition-duration: 0.5s;
+    transition-property: transform;
+    transform: scale(1.05);
+  }
+}
 
 @font-face {
   font-family: "Avenir";
