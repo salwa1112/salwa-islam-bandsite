@@ -19,7 +19,7 @@
         opacity: 0.3;
 
         @include desktop {
-            height: 70vh;
+            height: 85vh;
             background-color: #323232;
             opacity: 0.3;
         }
@@ -36,7 +36,7 @@
         font-family: 'Avenir', sans-serif;
 
         @include desktop {
-            height: 70vh;
+            height: 85vh;
         }
     
         &__title {
@@ -51,6 +51,7 @@
 
             @include desktop {
                 padding-left: 8rem;
+                font-size: 4rem;
             }
            
         }

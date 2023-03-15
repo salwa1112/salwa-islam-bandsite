@@ -31,6 +31,7 @@ header {
 @media (min-width: 1280px) {
   .header__logo {
     padding-left: 8rem;
+    padding-right: 2rem;
   }
 }
 
@@ -70,12 +71,19 @@ header {
     padding-bottom: 2.25rem;
   }
 }
+@media (min-width: 1280px) {
+  .navheader__list--listitem__link:hover {
+    border-bottom: 0.2rem solid #E1E1E1;
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+}
 
 .active {
-  border-bottom: 0.3rem solid #E1E1E1;
+  border-bottom: 0.2rem solid #E1E1E1;
   font-weight: 700;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #FAFAFA;
 }
 
 .hero__container, .hero__container--content, .hero__container--content:before, .hero__container:before {
@@ -95,7 +103,7 @@ header {
 }
 @media (min-width: 1280px) {
   .hero__container:before, .hero__container--content:before {
-    height: 70vh;
+    height: 85vh;
     background-color: #323232;
     opacity: 0.3;
   }
@@ -110,7 +118,7 @@ header {
 }
 @media (min-width: 1280px) {
   .hero__container--content {
-    height: 70vh;
+    height: 85vh;
   }
 }
 .hero__container--content__title {
@@ -127,6 +135,7 @@ header {
 @media (min-width: 1280px) {
   .hero__container--content__title {
     padding-left: 8rem;
+    font-size: 4rem;
   }
 }
 
@@ -261,7 +270,7 @@ header {
 
 @media (min-width: 1280px) {
   .author {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #323232;
   }
 }
@@ -279,8 +288,8 @@ header {
 }
 @media (min-width: 1280px) {
   .footer__container {
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 }
 .footer__container__header {
