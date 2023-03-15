@@ -16,7 +16,13 @@
         left: 0;
         height: 50vh;
         background-color: #323232;
-        opacity: 0.5;
+        opacity: 0.3;
+
+        @include desktop {
+            height: 70vh;
+            background-color: #323232;
+            opacity: 0.3;
+        }
         
     }
         
@@ -28,6 +34,10 @@
         height: 50vh;
         align-items: center;
         font-family: 'Avenir', sans-serif;
+
+        @include desktop {
+            height: 70vh;
+        }
     
         &__title {
             color: $primary-text-color-dark-background;
@@ -38,6 +48,11 @@
             @include tablet {
                 font-size: 3rem;
             }
+
+            @include desktop {
+                padding-left: 8rem;
+            }
+           
         }
     }
 }

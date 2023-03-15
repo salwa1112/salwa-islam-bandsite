@@ -7,6 +7,12 @@
     flex-wrap: wrap;
     width: 100%;
     background-color: $secondary-light-background-color;
+
+    @include desktop {
+        padding-left: 6rem;
+        padding-right: 6rem;
+
+    }
     
     &--title {
         @extend .gallery__container;

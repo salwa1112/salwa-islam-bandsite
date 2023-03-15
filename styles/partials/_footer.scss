@@ -12,6 +12,11 @@
         padding-top: 2rem;
     }
 
+    @include desktop {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
     //Footer container header
     &__header {
         padding: 1rem;

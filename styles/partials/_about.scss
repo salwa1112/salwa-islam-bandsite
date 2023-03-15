@@ -6,6 +6,7 @@
     flex-direction: column;
     font-family: 'Avenir', sans-serif;
 
+
     &--content {
         @extend .about__container;
         padding: 2rem 1rem 0 1rem;
@@ -20,6 +21,11 @@
                 padding-bottom: 1rem;
                 padding-left: 2rem;
             }
+
+            @include desktop {
+                padding-left: 8rem;
+            }
+
         }
 
         &__image {
@@ -30,6 +36,12 @@
                 padding-left: 6rem;
                 padding-right: 6rem;
             }
+
+            @include desktop {
+                padding-left: 12rem;
+                padding-right: 12rem;
+            }
+
         }
 
         &__quote {
@@ -45,6 +57,13 @@
                 padding-left: 6rem;
                 padding-right: 6rem;
             }
+
+            @include desktop {
+                padding-left: 12rem;
+                padding-right: 20rem;
+                line-height: 2rem;
+            }
+
         }
 
         &__history {
@@ -57,6 +76,11 @@
                 padding-bottom: 1.5rem;
             }
 
+            @include desktop {
+                padding-left: 8rem;
+                padding-right: 8rem;
+            }
+
             &--title {
                 font-size: 1rem;
                 font-weight: 600;
@@ -64,7 +88,15 @@
                 @include tablet {
                     font-size: 1.75rem;
                 }
+
+
+                @include desktop {
+                    padding-left: 4rem;
+                    padding-right: 4rem;
+                }
             }
+
+
 
             &--description {
                 display: block;
@@ -90,14 +122,30 @@
                     }
 
                 }
+
+                @include desktop {
+                    padding-left: 4rem;
+                    padding-right: 3rem;
+                }
+
             }
         }
     }
 }
 
 .quote {
-    &::before, &::after {
+
+    &::before,
+    &::after {
         content: '"';
     }
 }
 
+
+.author {
+    @include desktop {
+        font-size: 0.8rem;
+        color: $primary-text-color-light-background;
+    }
+
+}

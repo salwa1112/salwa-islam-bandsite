@@ -27,7 +27,12 @@ header {
     @include tablet {
         padding-left: 2rem;
         padding-bottom: 2rem;
+    }  
+
+    @include desktop {
+        padding-left: 8rem;
     }
+    
 }
 
 
