@@ -1,13 +1,13 @@
 @use '../variables' as *;
 @use '../partials/mixins' as *;
 
+
 .about__container {
     display: flex;
     flex-direction: column;
     font-family: 'Avenir', sans-serif;
 
-
-    &--content {
+    &-content {
         @extend .about__container;
         padding: 2rem 1rem 0 1rem;
 
@@ -81,7 +81,7 @@
                 padding-right: 8rem;
             }
 
-            &--title {
+            &-title {
                 font-size: 1rem;
                 font-weight: 600;
 
@@ -98,7 +98,7 @@
 
 
 
-            &--description {
+            &-description {
                 display: block;
                 padding-top: 1.5rem;
                 padding-bottom: 1rem;
@@ -107,6 +107,7 @@
                 line-height: 1.125rem;
                 font-weight: 300;
 
+                //paragraph separation for mobile
                 p:first-child {
                     margin-bottom: 1rem;
                 }
@@ -116,6 +117,7 @@
                     line-height: 1.5rem;
                     display: flex;
 
+                    //paragraph separation for tablet
                     p:first-child {
                         margin-bottom: 0;
                         padding-right: 3rem;
@@ -133,6 +135,7 @@
     }
 }
 
+//add quotation before and after the quote 
 .quote {
 
     &::before,
@@ -141,7 +144,7 @@
     }
 }
 
-
+//styling for the author name
 .author {
     @include desktop {
         font-size: 1rem;

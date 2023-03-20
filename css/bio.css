@@ -18,30 +18,30 @@ header {
   }
 }
 
-.header__logo {
+.header__logo--link {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  .header__logo {
+  .header__logo--link {
     padding-left: 2rem;
     padding-bottom: 2rem;
   }
 }
 @media (min-width: 1280px) {
-  .header__logo {
+  .header__logo--link {
     padding-left: 8rem;
     padding-right: 2rem;
   }
 }
 
-.navheader, .navheader__list--listitem, .navheader__list {
+.navheader, .navheader__list-item, .navheader__list {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 @media (min-width: 768px) {
-  .navheader, .navheader__list--listitem, .navheader__list {
+  .navheader, .navheader__list-item, .navheader__list {
     width: auto;
   }
 }
@@ -49,15 +49,15 @@ header {
   list-style: none;
   padding: 0rem;
 }
-.navheader__list--listitem {
+.navheader__list-item {
   justify-content: center;
 }
 @media (min-width: 768px) {
-  .navheader__list--listitem {
+  .navheader__list-item {
     padding-left: 2.25rem;
   }
 }
-.navheader__list--listitem__link {
+.navheader__list-item__link {
   width: 100%;
   font-size: 1rem;
   font-weight: 300;
@@ -67,31 +67,30 @@ header {
   text-align: center;
 }
 @media (min-width: 768px) {
-  .navheader__list--listitem__link {
+  .navheader__list-item__link {
     padding-bottom: 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  .navheader__list--listitem__link:hover {
+  .navheader__list-item__link:hover {
     border-bottom: 0.2rem solid #E1E1E1;
     text-decoration: none;
     color: #FFFFFF;
   }
 }
-
-.active {
+.navheader__list-item__link--active {
   border-bottom: 0.2rem solid #E1E1E1;
   font-weight: 700;
   text-decoration: none;
   color: #FAFAFA;
 }
 
-.hero__container, .hero__container--content, .hero__container--content:before, .hero__container:before {
+.hero__container, .hero__container-content, .hero__container-content:before, .hero__container:before {
   width: 100%;
   display: flex;
   padding-top: 6rem;
 }
-.hero__container:before, .hero__container--content:before {
+.hero__container:before, .hero__container-content:before {
   content: "";
   display: block;
   position: absolute;
@@ -102,13 +101,13 @@ header {
   opacity: 0.3;
 }
 @media (min-width: 1280px) {
-  .hero__container:before, .hero__container--content:before {
+  .hero__container:before, .hero__container-content:before {
     height: 85vh;
     background-color: #323232;
     opacity: 0.3;
   }
 }
-.hero__container--content {
+.hero__container-content {
   background-image: url("/assets/images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
@@ -117,42 +116,42 @@ header {
   font-family: "Avenir", sans-serif;
 }
 @media (min-width: 1280px) {
-  .hero__container--content {
+  .hero__container-content {
     height: 85vh;
   }
 }
-.hero__container--content__title {
+.hero__container-content__title {
   color: #FFFFFF;
   font-weight: 500;
   padding-left: 1rem;
   transform: translateY(-3rem);
 }
 @media (min-width: 768px) {
-  .hero__container--content__title {
+  .hero__container-content__title {
     font-size: 3rem;
   }
 }
 @media (min-width: 1280px) {
-  .hero__container--content__title {
+  .hero__container-content__title {
     padding-left: 8rem;
     font-size: 4rem;
   }
 }
 
-.about__container, .about__container--content {
+.about__container, .about__container-content {
   display: flex;
   flex-direction: column;
   font-family: "Avenir", sans-serif;
 }
-.about__container--content {
+.about__container-content {
   padding: 2rem 1rem 0 1rem;
 }
-.about__container--content__title {
+.about__container-content__title {
   font-size: 1.5rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  .about__container--content__title {
+  .about__container-content__title {
     font-size: 2rem;
     padding-top: 2rem;
     padding-bottom: 1rem;
@@ -160,27 +159,27 @@ header {
   }
 }
 @media (min-width: 1280px) {
-  .about__container--content__title {
+  .about__container-content__title {
     padding-left: 8rem;
   }
 }
-.about__container--content__image {
+.about__container-content__image {
   padding-top: 1rem;
   padding-bottom: 0.5rem;
 }
 @media (min-width: 768px) {
-  .about__container--content__image {
+  .about__container-content__image {
     padding-left: 6rem;
     padding-right: 6rem;
   }
 }
 @media (min-width: 1280px) {
-  .about__container--content__image {
+  .about__container-content__image {
     padding-left: 12rem;
     padding-right: 12rem;
   }
 }
-.about__container--content__quote {
+.about__container-content__quote {
   font-family: "Avenir Demi", sans-serif;
   padding-top: 0.5rem;
   font-size: 1rem;
@@ -188,7 +187,7 @@ header {
   font-weight: 600;
 }
 @media (min-width: 768px) {
-  .about__container--content__quote {
+  .about__container-content__quote {
     font-size: 1.5rem;
     line-height: 3rem;
     padding-left: 6rem;
@@ -196,17 +195,17 @@ header {
   }
 }
 @media (min-width: 1280px) {
-  .about__container--content__quote {
+  .about__container-content__quote {
     padding-left: 12rem;
     padding-right: 20rem;
     line-height: 2rem;
   }
 }
-.about__container--content__history {
+.about__container-content__history {
   padding-top: 1.5rem;
 }
 @media (min-width: 768px) {
-  .about__container--content__history {
+  .about__container-content__history {
     padding-left: 6rem;
     padding-right: 6rem;
     padding-top: 3rem;
@@ -214,27 +213,27 @@ header {
   }
 }
 @media (min-width: 1280px) {
-  .about__container--content__history {
+  .about__container-content__history {
     padding-left: 8rem;
     padding-right: 8rem;
   }
 }
-.about__container--content__history--title {
+.about__container-content__history-title {
   font-size: 1rem;
   font-weight: 600;
 }
 @media (min-width: 768px) {
-  .about__container--content__history--title {
+  .about__container-content__history-title {
     font-size: 1.75rem;
   }
 }
 @media (min-width: 1280px) {
-  .about__container--content__history--title {
+  .about__container-content__history-title {
     padding-left: 4rem;
     padding-right: 4rem;
   }
 }
-.about__container--content__history--description {
+.about__container-content__history-description {
   display: block;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
@@ -243,22 +242,22 @@ header {
   line-height: 1.125rem;
   font-weight: 300;
 }
-.about__container--content__history--description p:first-child {
+.about__container-content__history-description p:first-child {
   margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  .about__container--content__history--description {
+  .about__container-content__history-description {
     font-size: 1rem;
     line-height: 1.5rem;
     display: flex;
   }
-  .about__container--content__history--description p:first-child {
+  .about__container-content__history-description p:first-child {
     margin-bottom: 0;
     padding-right: 3rem;
   }
 }
 @media (min-width: 1280px) {
-  .about__container--content__history--description {
+  .about__container-content__history-description {
     padding-left: 4rem;
     padding-right: 3rem;
   }
@@ -314,7 +313,7 @@ header {
     align-items: center;
   }
 }
-.footer__container__social--title {
+.footer__container__social-title {
   font-family: "Avenir Demi", sans-serif;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -322,157 +321,157 @@ header {
   font-weight: 500;
 }
 @media (min-width: 768px) {
-  .footer__container__social--title {
+  .footer__container__social-title {
     font-size: 2rem;
     font-weight: 600;
   }
 }
-.footer__container__social__icons, .footer__container__social__icons--twitter, .footer__container__social__icons--facebook, .footer__container__social__icons--instagram {
+.footer__container__social__icons, .footer__container__social__icons-twitter, .footer__container__social__icons-facebook, .footer__container__social__icons-instagram {
   padding-right: 2rem;
   height: 1.5rem;
 }
 @media (min-width: 768px) {
-  .footer__container__social__icons, .footer__container__social__icons--twitter, .footer__container__social__icons--facebook, .footer__container__social__icons--instagram {
+  .footer__container__social__icons, .footer__container__social__icons-twitter, .footer__container__social__icons-facebook, .footer__container__social__icons-instagram {
     padding-left: 1.5rem;
     padding-right: 1rem;
     height: 1.5rem;
   }
 }
-.footer__container__contact, .footer__container--copyright {
+.footer__container__contact, .footer__container-copyright {
   padding: 1rem;
 }
 @media (min-width: 768px) {
-  .footer__container__contact, .footer__container--copyright {
+  .footer__container__contact, .footer__container-copyright {
     display: flex;
   }
 }
-.footer__container__contact--info, .footer__container__contact--info__email, .footer__container__contact--info__address, .footer__container__contact--info__title {
+.footer__container__contact-info, .footer__container__contact-info__email, .footer__container__contact-info__address, .footer__container__contact-info__title {
   padding-bottom: 1.5rem;
 }
 @media (min-width: 768px) {
-  .footer__container__contact--info, .footer__container__contact--info__email, .footer__container__contact--info__address, .footer__container__contact--info__title {
+  .footer__container__contact-info, .footer__container__contact-info__email, .footer__container__contact-info__address, .footer__container__contact-info__title {
     padding-right: 1rem;
     width: auto;
   }
 }
-.footer__container__contact--info__title {
+.footer__container__contact-info__title {
   font-family: "Avenir Demi", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 600;
 }
 @media (min-width: 768px) {
-  .footer__container__contact--info__title {
+  .footer__container__contact-info__title {
     font-size: 1rem;
     padding-top: 2rem;
     line-height: 1.5rem;
   }
 }
-.footer__container__contact--info__address {
+.footer__container__contact-info__address {
   font-size: 0.8125rem;
 }
 @media (min-width: 768px) {
-  .footer__container__contact--info__address {
+  .footer__container__contact-info__address {
     font-size: 1rem;
     padding-top: 1rem;
     line-height: 1.5rem;
   }
 }
-.footer__container__contact--info__email {
+.footer__container__contact-info__email {
   font-size: 0.875rem;
   font-weight: 400;
 }
 @media (min-width: 768px) {
-  .footer__container__contact--info__email {
+  .footer__container__contact-info__email {
     font-size: 1rem;
     position: relative;
     padding-top: 1rem;
   }
 }
-.footer__container__contact--info__email a {
+.footer__container__contact-info__email a {
   text-decoration: none;
   color: #FFFFFF;
 }
 @media (min-width: 768px) {
-  .footer__container__contact--info__email a {
+  .footer__container__contact-info__email a {
     position: absolute;
     bottom: 0;
     left: 0;
   }
 }
-.footer__container--copyright {
+.footer__container-copyright {
   font-size: 0.75rem;
   padding-bottom: 1.5rem;
 }
 @media (min-width: 768px) {
-  .footer__container--copyright {
+  .footer__container-copyright {
     padding-bottom: 3rem;
     padding-top: 2rem;
     font-size: 1rem;
   }
 }
-.footer__container--copyright:before {
+.footer__container-copyright:before {
   padding-top: 1rem;
   content: url("/assets/logos/Logo-bandsite.svg");
   display: flex;
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  .footer__container--copyright:before {
+  .footer__container-copyright:before {
     display: none;
   }
 }
 
-.gallery__container, .gallery__container--title {
+.gallery__container, .gallery__container-title {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   background-color: #FAFAFA;
 }
 @media (min-width: 1280px) {
-  .gallery__container, .gallery__container--title {
+  .gallery__container, .gallery__container-title {
     padding-left: 6rem;
     padding-right: 6rem;
   }
 }
-.gallery__container--title {
+.gallery__container-title {
   padding: 1rem;
 }
 @media (min-width: 768px) {
-  .gallery__container--title {
+  .gallery__container-title {
     font-size: 2rem;
     padding-top: 2rem;
     padding-bottom: 1rem;
     padding-left: 2rem;
   }
 }
-.gallery__container--list {
+.gallery__container-list {
   list-style: none;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 @media (min-width: 768px) {
-  .gallery__container--list {
+  .gallery__container-list {
     -moz-column-count: 3;
          column-count: 3;
     padding: 2rem;
   }
 }
-.gallery__container--list__listitem--photo {
+.gallery__container-list__listitem-photo {
   width: 100%;
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  .gallery__container--list__listitem--photo {
+  .gallery__container-list__listitem-photo {
     padding-bottom: 1rem;
     padding-right: 0.5rem;
   }
 }
 @media (min-width: 1280px) {
-  .gallery__container--list__listitem--photo {
+  .gallery__container-list__listitem-photo {
     filter: grayscale(1);
   }
-  .gallery__container--list__listitem--photo:hover {
+  .gallery__container-list__listitem-photo:hover {
     filter: grayscale(0);
     transition-duration: 0.5s;
     transition-property: transform;

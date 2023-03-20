@@ -1,6 +1,7 @@
 @use '../variables' as var;
 @use './mixins' as *;
 
+// base header is for mobile
 header {
     display: flex;
     flex-direction: column;
@@ -12,6 +13,7 @@ header {
     position: fixed;
     z-index: 999;
 
+    //changed flex direction to row for tablet
     @include tablet {
         flex-direction: row;
         justify-content: flex-start;
@@ -20,7 +22,7 @@ header {
     }
 }
 
-.header__logo {
+.header__logo--link {
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -36,9 +38,8 @@ header {
 
 }
 
-
+//Nav header base class
 .navheader {
-    //Nav header base class
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -47,7 +48,7 @@ header {
         width: auto;
     }
 
-    // Parent list class
+    // Parent list class extends navheader 
     &__list {
         @extend .navheader;
         list-style: none;
@@ -55,16 +56,13 @@ header {
     }
 
     //List Item Class
-    &__list--listitem {
-        //List Item Link Class
+    &__list-item {
         @extend .navheader;
         justify-content: center;
 
         @include tablet {
             padding-left: 2.25rem;
         }
-
-
 
         &__link {
             width: 100%;
@@ -79,6 +77,7 @@ header {
                 padding-bottom: 2.25rem;
             }
 
+            //header underline styling for inactive link on hover (only for desktop)
             @include desktop {
                 &:hover {
                     border-bottom: 0.2rem solid var.$divider-line-color;
@@ -86,13 +85,13 @@ header {
                     color: var.$primary-text-color-dark-background;
                 }
             }
+            //header underline styling for active link for all screen sizes
+            &--active {
+                border-bottom: 0.2rem solid var.$divider-line-color;
+                font-weight: 700;
+                text-decoration: none;
+                color: var.$secondary-light-background-color;
+            }
         }
     }
-}
-
-.active {
-    border-bottom: 0.2rem solid var.$divider-line-color;
-    font-weight: 700;
-    text-decoration: none;
-    color: var.$secondary-light-background-color;
 }
