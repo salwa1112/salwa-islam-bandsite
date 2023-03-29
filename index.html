@@ -24,7 +24,7 @@
                     <a class="navheader__list-item__link navheader__list-item__link--active" href="">Biography</a>
                 </li>
                 <li class="navheader__list-item">
-                    <a class="navheader__list-item__link" href="">Shows</a>
+                    <a class="navheader__list-item__link" href="pages/shows.html">Shows</a>
                 </li>
             </ul>
         </nav>
@@ -111,26 +111,34 @@
         </ul>
     </section>
 
-    <!-- Comment Section -->
-    <section class="comment__container">
-        <div class="comment__container-content">
-            <h2 class="comment__container-content__title">Join the Conversation</h2>
-            <div class="comment__container-form">
-                <img class="comment__container-form__img" src="" alt="" />
-                <form action="">
-                    <label class="comment__container-form__label" for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br><br>
-
-                    <label for="comment">Comment:</label><br>
-                    <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
-
-                    <button type="submit" title="Comment">Comment</button>
-                </form>
-
-
-            </div>
+    <section class="comments-section">
+        <h2 class="comments-section__title">Join the Converstation</h2>
+        <div class="comments-section-form">
+            <img class="comments-section-form__img" src="assets/images/Mohan-muruge.jpg" alt="" />
+            <form class="comments-section-form__frm" action="">
+                <label class="comments-section-form__lbl" for="name">Name</label>
+                <input placeholder="Enter your name" type="text" id="name" name="name" required>
+            
+                <label class="comments-section-form__lbl" for="comment">Comment</label>
+                <textarea placeholder="Add a new comment" id="comment" name="comment" rows="5" cols="50" required></textarea>
+            
+                <button class="comments-section-form__btn" type="button" title="Comment">Comment</button>
+            </form>
         </div>
-
+      
+        <!-- <div class="comments-section-history"> 
+            <hr class="comments-section-history__divider"/> 
+            <div class="comments-section-history-info"> 
+                <img class="comments-section-history-info__img" src="./assets/images/default.jpg" alt="user profile image">
+                <div class="comments-section-history-info-posted_comment"> 
+                    <div class="comments-section-history-header">
+                        <h2 class="comments-section-history-header__authorname">Connor</h2>
+                        <p class="comments-section-history-header__postdate">1/1/2000</p>
+                    </div> 
+                    <p class="comments-section-history-info__comment">This </p>
+                </div>
+            </div>         
+        </div> -->
     </section>
 
     <!-- Footer Section -->
@@ -191,7 +199,9 @@
         </section>
         <p class="footer__container-copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
     </footer>
-    <script src="./scripts/index-page.js"></script>
+
+    <!-- script -->
+    <script src="scripts/index-page.js"></script>
 </body>
 
 </html>
