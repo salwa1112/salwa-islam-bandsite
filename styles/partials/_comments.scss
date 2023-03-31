@@ -10,155 +10,144 @@
         padding-left: 1rem;
         padding-right: 1rem;
     }
-
-    //Form content div
-    &-form-content {
+    
+    &__form-content {
         @extend .comments-section;
         flex-direction: row;
         padding: 1rem 1rem 1rem 1rem;
-
-        //Form
-        &__frm {
-            flex-wrap: wrap;
-            padding-left: 1rem;
-
-            input {
-                width: 100%;
-                height: 2.25rem;
-                border-radius: .25rem;
-                padding: 0.75rem;
-                margin-top: .25rem;
-                margin-bottom: 1rem;
-                border-style: solid;
-                border: 0.0625rem solid $mercury;
-                background-color: $alabaster;
-
-                &:focus {
-                    border: 0.0625rem solid $bandsite-black;
-                    outline: none;
-                }
-
-                &::placeholder {
-                    color: black;
-                }
-            }
-
-            textarea {
-                width: 100%;
-                padding: 0;
-                border-radius: 0.25rem;
-                padding: 0.75rem;
-                border: 1px solid $mercury;
-                background-color: $alabaster;
-                margin-top: .25rem;
-                margin-bottom: 1rem;
-                resize: none;
-                outline: none;
-
-
-                &:focus {
-                    border: 0.0625rem solid $bandsite-black;
-                    outline: none;
-                }
-
-                &::placeholder {
-                    color: black;
-                }
-            }
-        }
-
-
-        &__img {
-            height: 2.25rem;
-            width: 2.25rem;
-            border-radius: 1.125rem;
-            margin-top: 22px;
-            object-fit: cover;
-            object-position: 30%;
-        }
-
-        &__btn {
-            width: 100%;
-            height: 2.5rem;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 400;
-            background-color: $bandsite-black;
-            color: white;
-            border-radius: .25rem;
-            font-stretch: ultra-expanded;
-            box-shadow: none;
-
-            &:hover {
-                background-color: black;
-            }
-        }
-
-        &__lbl {
-            font-family: 'Avenir Demi', sans-serif;
-            font-size: 0.8rem;
-            font-stretch: expanded;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #AFAFAF;
-        }
-
     }
 
+    &__frm {
+        flex-wrap: wrap;
+        padding-left: 1rem;
 
-    &-history {
-        @extend .comments-section;
-
-        &__divider {
+        input {
+            width: 100%;
+            height: 2.25rem;
+            border-radius: .25rem;
+            padding: 0.75rem;
+            margin-top: .25rem;
+            margin-bottom: 1rem;
+            border-style: solid;
             border: 0.0625rem solid $mercury;
-            margin: 0 1rem 1rem 1rem;
-        }
+            background-color: $alabaster;
 
-
-        &-info {
-            @extend .comments-section;
-            flex-direction: row;
-            padding-left: 1rem;
-            padding-right: 1rem;
-
-            &-posted_comment {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
+            &:focus {
+                border: 0.0625rem solid $bandsite-black;
+                outline: none;
             }
 
-            &__img {
-                height: 2.25rem;
-                width: 2.25rem;
-                border-radius: 1.125rem;
-                object-fit: cover;
-                object-position: 30%;
-                background-color: $mercury;
-            }
-
-            &__comment {
-                width: 100%;
-                padding: 1rem 0rem 1rem 1rem;
-                font-size: 0.8125rem;
-                font-weight: 400;
-                word-wrap: break-word;
+            &::placeholder {
+                color: black;
             }
         }
 
+        textarea {
+            width: 100%;
+            padding: 0;
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            border: 1px solid $mercury;
+            background-color: $alabaster;
+            margin-top: .25rem;
+            margin-bottom: 1rem;
+            resize: none;
+            outline: none;
+
+
+            &:focus {
+                border: 0.0625rem solid $bandsite-black;
+                outline: none;
+            }
+
+            &::placeholder {
+                color: black;
+            }
+        }
+    }
+
+    &__img {
+        height: 2.25rem;
+        width: 2.25rem;
+        border-radius: 1.125rem;
+        object-fit: cover;
+        object-position: 30%;
+    }
+
+    &__btn {
+        width: 100%;
+        height: 2.5rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        background-color: $bandsite-black;
+        color: white;
+        border-radius: .25rem;
+        font-stretch: ultra-expanded;
+        box-shadow: none;
+
+        &:hover {
+            background-color: black;
+        }
+    }
+
+    &__lbl {
+        font-family: 'Avenir Demi', sans-serif;
+        font-size: 0.8rem;
+        font-stretch: expanded;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #AFAFAF;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__list-item-content {
+        @extend .comments-section;
+        flex-direction: row;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    &__posted-comment {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    &__list-item { 
         &-header {
             @extend .comments-section;
             flex-direction: row;
             justify-content: space-between;
             padding-left: 1rem;
-
-            &__authorname {
-                font-size: 0.875rem;
-            }
-
-            &__postdate {
-                font-size: 0.875rem;
-                color: $silver;
-            }
         }
+
+        &-author-name {
+            font-size: 0.875rem;
+        }
+
+        &-post-date {
+            font-size: 0.875rem;
+            color: $silver;
+        }
+
+        &-description {
+            width: 100%;
+            padding: 1rem 0rem 1rem 1rem;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+        }
+    }
+
+    &__divider {
+        border: 0.0625rem solid $mercury;
+        margin: 0 1rem 1rem 1rem;
     }
 }
