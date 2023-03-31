@@ -22,7 +22,7 @@ header {
     }
 }
 
-.header__logo--link {
+.header__link {
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -62,36 +62,36 @@ header {
 
         @include tablet {
             padding-left: 2.25rem;
+        }       
+    }
+
+    &__link {
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 300;
+        text-decoration: none;
+        padding-bottom: 1rem;
+        color: var.$inactive-cta-text-color;
+        text-align: center;
+
+        @include tablet {
+            padding-bottom: 2.25rem;
         }
 
-        &__link {
-            width: 100%;
-            font-size: 1rem;
-            font-weight: 300;
-            text-decoration: none;
-            padding-bottom: 1rem;
-            color: var.$inactive-cta-text-color;
-            text-align: center;
-
-            @include tablet {
-                padding-bottom: 2.25rem;
-            }
-
-            //header underline styling for inactive link on hover (only for desktop)
-            @include desktop {
-                &:hover {
-                    border-bottom: 0.2rem solid var.$divider-line-color;
-                    text-decoration: none;
-                    color: var.$primary-text-color-dark-background;
-                }
-            }
-            //header underline styling for active link for all screen sizes
-            &--active {
+        //header underline styling for inactive link on hover (only for desktop)
+        @include desktop {
+            &:hover {
                 border-bottom: 0.2rem solid var.$divider-line-color;
-                font-weight: 700;
                 text-decoration: none;
-                color: var.$secondary-light-background-color;
+                color: var.$primary-text-color-dark-background;
             }
+        }
+        //header underline styling for active link for all screen sizes
+        &--active {
+            border-bottom: 0.2rem solid var.$divider-line-color;
+            font-weight: 700;
+            text-decoration: none;
+            color: var.$secondary-light-background-color;
         }
     }
 }
