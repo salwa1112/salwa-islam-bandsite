@@ -479,7 +479,7 @@ header {
   }
 }
 
-.comments-section, .comments-section-history-header, .comments-section-history-info, .comments-section-history, .comments-section-form {
+.comments-section, .comments-section__list-item-header, .comments-section__list-item-content, .comments-section__form-content {
   display: flex;
   flex-direction: column;
   font-family: "Avenir", sans-serif;
@@ -488,15 +488,15 @@ header {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.comments-section-form {
+.comments-section__form-content {
   flex-direction: row;
   padding: 1rem 1rem 1rem 1rem;
 }
-.comments-section-form__frm {
+.comments-section__frm {
   flex-wrap: wrap;
   padding-left: 1rem;
 }
-.comments-section-form__frm input {
+.comments-section__frm input {
   width: 100%;
   height: 2.25rem;
   border-radius: 0.25rem;
@@ -507,17 +507,17 @@ header {
   border: 0.0625rem solid #E1E1E1;
   background-color: #FAFAFA;
 }
-.comments-section-form__frm input:focus {
+.comments-section__frm input:focus {
   border: 0.0625rem solid #323232;
   outline: none;
 }
-.comments-section-form__frm input::-moz-placeholder {
+.comments-section__frm input::-moz-placeholder {
   color: black;
 }
-.comments-section-form__frm input::placeholder {
+.comments-section__frm input::placeholder {
   color: black;
 }
-.comments-section-form__frm textarea {
+.comments-section__frm textarea {
   width: 100%;
   padding: 0;
   border-radius: 0.25rem;
@@ -529,27 +529,26 @@ header {
   resize: none;
   outline: none;
 }
-.comments-section-form__frm textarea:focus {
+.comments-section__frm textarea:focus {
   border: 0.0625rem solid #323232;
   outline: none;
 }
-.comments-section-form__frm textarea::-moz-placeholder {
+.comments-section__frm textarea::-moz-placeholder {
   color: black;
 }
-.comments-section-form__frm textarea::placeholder {
+.comments-section__frm textarea::placeholder {
   color: black;
 }
-.comments-section-form__img {
+.comments-section__img {
   height: 2.25rem;
   width: 2.25rem;
   border-radius: 1.125rem;
-  margin-top: 22px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: 30%;
      object-position: 30%;
 }
-.comments-section-form__btn {
+.comments-section__btn {
   width: 100%;
   height: 2.5rem;
   font-size: 1rem;
@@ -561,10 +560,10 @@ header {
   font-stretch: ultra-expanded;
   box-shadow: none;
 }
-.comments-section-form__btn:hover {
+.comments-section__btn:hover {
   background-color: black;
 }
-.comments-section-form__lbl {
+.comments-section__lbl {
   font-family: "Avenir Demi", sans-serif;
   font-size: 0.8rem;
   font-stretch: expanded;
@@ -572,54 +571,44 @@ header {
   font-weight: 600;
   color: #AFAFAF;
 }
-.comments-section-history__divider {
-  border: 0.0625rem solid #E1E1E1;
-  margin-right: 1rem;
-  margin-left: 1rem;
+.comments-section__list {
+  list-style: none;
+  padding: 0;
 }
-.comments-section-history-info {
+.comments-section__list-item-content {
   flex-direction: row;
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.comments-section-history-info-posted_comment {
+.comments-section__posted-comment {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.comments-section-history-info__img {
-  height: 2.25rem;
-  width: 2.25rem;
-  border-radius: 1.125rem;
-  margin-top: 1rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 30%;
-     object-position: 30%;
-  background-color: #E1E1E1;
-}
-.comments-section-history-info-title {
-  width: 100%;
+.comments-section__list-item-header {
+  flex-direction: row;
   justify-content: space-between;
+  padding-left: 1rem;
 }
-.comments-section-history-info__comment {
+.comments-section__list-item-author-name {
+  font-size: 0.875rem;
+}
+.comments-section__list-item-post-date {
+  font-size: 0.875rem;
+  color: #AFAFAF;
+}
+.comments-section__list-item-description {
   width: 100%;
   padding: 1rem 0rem 1rem 1rem;
   font-size: 0.8125rem;
   font-weight: 400;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
 }
-.comments-section-history-header {
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 1rem;
-  padding-left: 1rem;
-}
-.comments-section-history-header__authorname {
-  font-size: 0.875rem;
-}
-.comments-section-history-header__postdate {
-  font-size: 0.875rem;
-  color: #AFAFAF;
+.comments-section__divider {
+  border: 0.0625rem solid #E1E1E1;
+  margin: 0 1rem 1rem 1rem;
 }
 
 @font-face {

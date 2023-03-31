@@ -1,175 +1,151 @@
 const historicalComments = [
     {
-        img_src: "img src 1",
+        img_src: "./assets/images/default.jpg",
         author_name: "Connor Walton",
         post_date: "02/17/2021",
-        comment: 'This is art. This is inexplicable magic \n \
-                expressed in the purest way, everything \n \
-                that makes up this majestic work \n \
-                deserves reverence. Let us appreciate \n \
-                this for what it is and what it contains.'
+        description: "This is art. This is inexplicable magic\
+                expressed in the purest way, everything\
+                that makes up this majestic work\
+                deserves reverence. Let us appreciate this for what it is and what it contains."
     },
     {
-        img_src: "img src 2",
+        img_src: "./assets/images/default.jpg",
         author_name: "Emilie Beach",
         post_date: "01/09/2021",
-        comment: 'This is art. This is inexplicable magic \n \
-                expressed in the purest way, everything \n \
-                that makes up this majestic work \n \
-                deserves reverence. Let us appreciate \n \
-                this for what it is and what it contains.'
+        description: "I feel blessed to have seen them in\
+        person. What a show! They were just\
+        perfection. If there was one day of my\
+        life I could relive, this would be it. What\
+        an incredible day."
     },
     {
-        img_src: "img src 3",
+        img_src: "./assets/images/default.jpg",
         author_name: "Miles Acosta",
         post_date: "12/20/2020",
-        comment: 'This is art. This is inexplicable magic \n \
-                expressed in the purest way, everything \n \
-                that makes up this majestic work \n \
-                deserves reverence. Let us appreciate \n \
-                this for what it is and what it contains.'
+        description: "I can t stop listening. Every time I hear\
+        one of their songs - the vocals - it gives\
+        me goosebumps. Shivers straight down\
+        my spine. What a beautiful expression of\
+        creativity. Can t get enough."
     }
 ]
 
-
 document.addEventListener('DOMContentLoaded', () => {  
-    // const commentContainerSection = document.querySelector('.comment__container');
-    
-    // const commentContainerContent = document.createElement('div');
-    // const commentContainerHeader = document.createElement('h2');
-    // const commentContainerForm = document.createElement('form');
-   
-    
-    // commentContainerHeader.innerText = 'Join the Conversation';
-    
-    // //Add classes to element
-    // commentContainerContent.classList.add('comment__container-content');
-    // commentContainerHeader.classList.add('comment__container-content__title');    
-    
-    
-    // commentContainerContent.appendChild(commentContainerHeader);
-    // //commentContainerSection.appendChild(getLabel('Name:', 'name', 'comment__container-form__name'));
-    // commentContainerSection.appendChild(commentContainerContent);
-
     //load Previous Comments
     loadHistoricalComments();
 
+    const commentButton = document.querySelector('.comments-section__btn');
+    commentButton.addEventListener('click', (e) => {
+        //Stop propagation on button click
+        e.stopPropagation();
+    });
 
-    const commentButton = document.querySelector('.comments-section-form__btn');
-    commentButton.addEventListener('click', postNewComment);
-
+    const commentSubmissionForm = document.querySelector('.comments-section__frm');
+    commentSubmissionForm.addEventListener('submit', onCommentSubmitted);
 });
 
-function postNewComment(){
-    const commentAuthorName = document.getElementById('name').value.trim();
-    const currentDate = new Date();
-    const commentPostDate = `${(currentDate.getMonth()+1).toString().padStart(2,'0')}/${currentDate.getDate().toString().padStart(2,'0')}/${currentDate.getFullYear()}`
-    const commentText = document.getElementById('comment').value.trim();
-    const imgSrc = "./assets/images/default.jpg";
 
-    //Run data validation and set error state of the input elements
+function loadHistoricalComments(){
+    if(historicalComments.length === 0) return;
 
-    const comment = {
-        img_src: imgSrc,
-        author_name: commentAuthorName,
-        post_date: commentPostDate,
-        comment: commentText
-    };
+    //Sort by date asc, this is to insert the latest comment at the top
+    historicalComments.sort((a,b) => {
+        return new Date(a.post_date).getTime() - new Date(b.post_date).getTime();
+    });
 
-    addComment(comment);
 
-    clearForm();
+    //const ulComments = getElement('ul', 'comments-list');
+
+    historicalComments.forEach( (comment) => {
+        addComment(comment);
+    });
+
+    //Add top border after adding historical comments
+    const ulComments = document.querySelector('.comments-section__list');
+    const commentsSection = document.querySelector('.comments-section');
+    const divider = getElement('hr','comments-section__divider');
+    commentsSection.insertBefore(divider, ulComments);
 }
 
-function clearForm() {
-    const form = document.querySelector('.comments-section-form__frm');
-    form.reset();
+function onCommentSubmitted(event){
+//  Prevent default submit action
+    event.preventDefault();
+
+    const currentDate = new Date();
+    const comment = {
+        img_src: "./assets/images/default.jpg",
+        author_name: event.target.name.value,
+        post_date: `${(currentDate.getMonth()+1).toString().padStart(2,'0')}/
+            ${currentDate.getDate().toString().padStart(2,'0')}/${currentDate.getFullYear()}`,
+        description: event.target.comment.value
+    };
+
+    //Add comment
+    addComment(comment);
+
+    //Clear inputs from form
+    clearForm();
 }
 
 function addComment(comment){
     if(typeof(comment) != "object")
         return;
 
-    console.log(comment);
+    let ulComments = document.querySelector('.comments-section__list');
 
-    const commentsSectionHistoryHeaderDiv= document.createElement('div');
+    if(!ulComments){
+        //No previous comments list found, create a new one
+        ulComments = getElement('ul', 'comments-section__list');
+    }
+
+    const listItem = getElement('li', 'comments-section__list-item');
     
-    const commentAuthorNameHeader = document.createElement('h2');
-    const commentPostDate = document.createElement('p');
+    const listItemContentRoot = getElement('div', 'comments-section__list-item-content');
+    const commentsSectionImage = getElement('img', 'comments-section__img');
+    const commentContainer = getElement('div', 'comments-section__posted-comment');
+    const commentContainerChild_Header = getElement('div', 'comments-section__list-item-header');
+    const commentHeaderChild_Name = getElement('h3', 'comments-section__list-item-author-name');
+    const commentHeaderChild_PostDate = getElement('p', 'comments-section__list-item-post-date');
+    const commentContinerChild_Description = getElement('p', 'comments-section__list-item-description');
+    const commentDivider = getElement('hr', 'comments-section__divider');
+    
+    //Append  header items to the header container
+    commentContainerChild_Header.appendChild(commentHeaderChild_Name);
+    commentContainerChild_Header.appendChild(commentHeaderChild_PostDate);
 
+    //Append header and comment description to the comment continer
+    commentContainer.appendChild(commentContainerChild_Header);
+    commentContainer.appendChild(commentContinerChild_Description);
 
-    commentsSectionHistoryHeaderDiv.appendChild(commentAuthorNameHeader);
-    commentsSectionHistoryHeaderDiv.appendChild(commentPostDate);
-
-    const commentText = document.createElement('p');
-    const commentDetailsRoot = document.createElement('div');
-    commentDetailsRoot.classList.add("comments-section-history-info-posted_comment")
-    commentDetailsRoot.appendChild(commentsSectionHistoryHeaderDiv);
-    commentDetailsRoot.appendChild(commentText);
-
-
-    const commentsHistoryInfoRoot = document.createElement('div');
-    const authorImageElement = document.createElement('img');
-
-    commentsHistoryInfoRoot.appendChild(authorImageElement);
-    commentsHistoryInfoRoot.appendChild(commentDetailsRoot);
-
-    const commentHistoryRoot = document.createElement('div');
-    const divider = document.createElement('hr');
-
-    commentHistoryRoot.appendChild(divider);
-    commentHistoryRoot.appendChild(commentsHistoryInfoRoot);
-
-    commentText.textContent = comment.comment;
-    commentPostDate.textContent = comment.post_date;
-    commentAuthorNameHeader.textContent = comment.author_name;
-    authorImageElement.src = "./assets/images/default.jpg";
-    authorImageElement.alt = `profile image of ${comment.author_name}`;
-
-
-
-    //Add to root comment section
-    const commentSection = document.querySelector('.comments-section');
-
+    //Append image and the comment container and the diveder to the list item class
+    listItemContentRoot.appendChild(commentsSectionImage);
+    listItemContentRoot.appendChild(commentContainer);
    
-    commentText.classList.add("comments-section-history-info__comment");
-    commentPostDate.classList.add("comments-section-history-header__postdate");
-    commentAuthorNameHeader.classList.add("comments-section-history-header__authorname");
-    authorImageElement.classList.add("comments-section-history-info__img");
-    divider.classList.add("comments-section-history__divider");
-    commentsSectionHistoryHeaderDiv.classList.add("comments-section-history-header");
-    commentsHistoryInfoRoot.classList.add("comments-section-history-info");
-    commentHistoryRoot.classList.add("comments-section-history");
+    //Add to the list item
+    listItem.appendChild(listItemContentRoot);
+    listItem.appendChild(commentDivider);
 
-    const firstComment= document.querySelector('.comments-section-history');
+    //Add data to the items
+    commentHeaderChild_Name.textContent = comment.author_name;
+    commentHeaderChild_PostDate.textContent = comment.post_date;
+    commentContinerChild_Description.textContent = comment.description;
+    commentsSectionImage.src = comment.img_src;
+    commentsSectionImage.alt = `profile photo of ${comment.author_name}`;
 
-    commentSection.insertBefore(commentHistoryRoot,firstComment);
 
+    //Add comment to list
+    ulComments.insertBefore(listItem, ulComments.firstChild);
+    const commentSection = document.querySelector('.comments-section');
+    commentSection.appendChild(ulComments);
 }
 
-
-function loadHistoricalComments(){
-  
-    //Sort by date asc
-    historicalComments.sort((a,b) => {
-        return new Date(a.post_date).getTime() - new Date(b.post_date).getTime();
-    });
-
-    historicalComments.forEach( (comment) => {
-        addComment(comment);
-    })
+function clearForm() {
+    const form = document.querySelector('.comments-section__frm');
+    form.reset();
 }
 
-
-
-
-function getLabel(labelInnerText, labelFor, labelClassName){
-    const label = document.createElement('label');
-    label.innerText = labelInnerText;
-    label.htmlFor = labelFor;
-    label.classList.add(labelClassName);
-    return label;
+function getElement(tagName, className){
+    const element = document.createElement(tagName);
+    element.classList.add(className);
+    return element;
 }
-
-
-
