@@ -3,14 +3,14 @@
 
 
 //Hero container base 
-.hero__container {
+.hero-container {
     width: 100%;
     display: flex;
     padding-top: 6rem;
 
     //for opacity on hero image
     &:before {
-        @extend .hero__container;
+        @extend .hero-container;
         content: "";
         display: block;
         position: absolute;
@@ -30,8 +30,8 @@
     }
 
     //hero background image
-    &-content {
-        @extend .hero__container;
+    &__content {
+        @extend .hero-container;
         background-image: url('/assets/images/hero-bio.jpg');
         background-size: cover;
         background-position: center;
@@ -43,22 +43,24 @@
             height: 85vh;
         }
 
-        &__title {
-            color: $primary-text-color-dark-background;
-            font-weight: 500;
-            padding-left: 1rem;
-            //to center the hero title
-            transform: translateY(-3rem);
+        
+    }
 
-            @include tablet {
-                font-size: 3rem;
-            }
+    &__title {
+        color: $primary-text-color-dark-background;
+        font-weight: 500;
+        padding-left: 1rem;
+        //to center the hero title
+        transform: translateY(-3rem);
 
-            @include desktop {
-                padding-left: 8rem;
-                font-size: 4rem;
-            }
-
+        @include tablet {
+            font-size: 3rem;
         }
+
+        @include desktop {
+            padding-left: 8rem;
+            font-size: 4rem;
+        }
+
     }
 }

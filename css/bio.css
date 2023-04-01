@@ -85,12 +85,12 @@ header {
   color: #FAFAFA;
 }
 
-.hero__container, .hero__container-content, .hero__container-content:before, .hero__container:before {
+.hero-container, .hero-container__content, .hero-container__content:before, .hero-container:before {
   width: 100%;
   display: flex;
   padding-top: 6rem;
 }
-.hero__container:before, .hero__container-content:before {
+.hero-container:before, .hero-container__content:before {
   content: "";
   display: block;
   position: absolute;
@@ -101,13 +101,13 @@ header {
   opacity: 0.3;
 }
 @media (min-width: 1280px) {
-  .hero__container:before, .hero__container-content:before {
+  .hero-container:before, .hero-container__content:before {
     height: 85vh;
     background-color: #323232;
     opacity: 0.3;
   }
 }
-.hero__container-content {
+.hero-container__content {
   background-image: url("/assets/images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
@@ -116,23 +116,23 @@ header {
   font-family: "Avenir", sans-serif;
 }
 @media (min-width: 1280px) {
-  .hero__container-content {
+  .hero-container__content {
     height: 85vh;
   }
 }
-.hero__container-content__title {
+.hero-container__title {
   color: #FFFFFF;
   font-weight: 500;
   padding-left: 1rem;
   transform: translateY(-3rem);
 }
 @media (min-width: 768px) {
-  .hero__container-content__title {
+  .hero-container__title {
     font-size: 3rem;
   }
 }
 @media (min-width: 1280px) {
-  .hero__container-content__title {
+  .hero-container__title {
     padding-left: 8rem;
     font-size: 4rem;
   }
