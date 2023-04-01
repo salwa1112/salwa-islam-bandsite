@@ -2,142 +2,139 @@
 @use '../partials/mixins' as *;
 
 
-.about__container {
+.about-container {
     display: flex;
     flex-direction: column;
     font-family: 'Avenir', sans-serif;
 
-    &-content {
-        @extend .about__container;
+    &__content {
+        @extend .about-container;
         padding: 2rem 1rem 0 1rem;
+    }
 
-        &__title {
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+
+        @include tablet {
+            font-size: 2rem;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        @include desktop {
+            padding-left: 8rem;
+        }
+
+    }
+
+    &__secondary-title {
+        font-size: 1rem;
+        font-weight: 600;
+
+        @include tablet {
+            font-size: 1.75rem;
+        }
+
+
+        @include desktop {
+            padding-left: 4rem;
+            padding-right: 4rem;
+        }
+    }
+
+    &__image {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+
+        @include tablet {
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
+
+        @include desktop {
+            padding-left: 12rem;
+            padding-right: 12rem;
+        }
+
+    }
+
+    &__quote {
+        font-family: 'Avenir Demi', sans-serif;
+        padding-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 2rem;
+        font-weight: 600;
+
+        @include tablet {
             font-size: 1.5rem;
-            font-weight: 700;
-
-            @include tablet {
-                font-size: 2rem;
-                padding-top: 2rem;
-                padding-bottom: 1rem;
-                padding-left: 2rem;
-            }
-
-            @include desktop {
-                padding-left: 8rem;
-            }
-
+            line-height: 3rem;
+            padding-left: 6rem;
+            padding-right: 6rem;
         }
 
-        &__image {
-            padding-top: 1rem;
-            padding-bottom: 0.5rem;
-
-            @include tablet {
-                padding-left: 6rem;
-                padding-right: 6rem;
-            }
-
-            @include desktop {
-                padding-left: 12rem;
-                padding-right: 12rem;
-            }
-
-        }
-
-        &__quote {
-            font-family: 'Avenir Demi', sans-serif;
-            padding-top: 0.5rem;
-            font-size: 1rem;
+        @include desktop {
+            padding-left: 12rem;
+            padding-right: 20rem;
             line-height: 2rem;
-            font-weight: 600;
+        }
 
-            @include tablet {
-                font-size: 1.5rem;
-                line-height: 3rem;
-                padding-left: 6rem;
-                padding-right: 6rem;
-            }
 
-            @include desktop {
-                padding-left: 12rem;
-                padding-right: 20rem;
-                line-height: 2rem;
+    }
+
+    &__history {
+        padding-top: 1.5rem;
+
+        @include tablet {
+            padding-left: 6rem;
+            padding-right: 6rem;
+            padding-top: 3rem;
+            padding-bottom: 1.5rem;
+        }
+
+        @include desktop {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+    }
+
+    &__description {
+        display: block;
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+        font-weight: 300;
+
+        //paragraph separation for mobile
+        p:first-child {
+            margin-bottom: 1rem;
+        }
+
+        @include tablet {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            display: flex;
+
+            //paragraph separation for tablet
+            p:first-child {
+                margin-bottom: 0;
+                padding-right: 3rem;
             }
 
         }
 
-        &__history {
-            padding-top: 1.5rem;
-
-            @include tablet {
-                padding-left: 6rem;
-                padding-right: 6rem;
-                padding-top: 3rem;
-                padding-bottom: 1.5rem;
-            }
-
-            @include desktop {
-                padding-left: 8rem;
-                padding-right: 8rem;
-            }
-
-            &-title {
-                font-size: 1rem;
-                font-weight: 600;
-
-                @include tablet {
-                    font-size: 1.75rem;
-                }
-
-
-                @include desktop {
-                    padding-left: 4rem;
-                    padding-right: 4rem;
-                }
-            }
-
-
-
-            &-description {
-                display: block;
-                padding-top: 1.5rem;
-                padding-bottom: 1rem;
-                padding-right: 1rem;
-                font-size: 0.875rem;
-                line-height: 1.125rem;
-                font-weight: 300;
-
-                //paragraph separation for mobile
-                p:first-child {
-                    margin-bottom: 1rem;
-                }
-
-                @include tablet {
-                    font-size: 1rem;
-                    line-height: 1.5rem;
-                    display: flex;
-
-                    //paragraph separation for tablet
-                    p:first-child {
-                        margin-bottom: 0;
-                        padding-right: 3rem;
-                    }
-
-                }
-
-                @include desktop {
-                    padding-left: 4rem;
-                    padding-right: 3rem;
-                }
-
-            }
+        @include desktop {
+            padding-left: 4rem;
+            padding-right: 3rem;
         }
     }
 }
 
 //add quotation before and after the quote 
 .quote {
-
     &::before,
     &::after {
         content: '"';
@@ -150,5 +147,4 @@
         font-size: 1rem;
         color: $primary-text-color-light-background;
     }
-
 }
