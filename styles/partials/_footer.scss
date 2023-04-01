@@ -2,7 +2,7 @@
 @use '../partials/mixins' as *;
 
 //Footer class base
-.footer__container {
+.footer-container {
     display: flex;
     flex-direction: column;
     background-color: $primary-background-color;
@@ -44,46 +44,46 @@
             align-items: center;
         }
 
-        &-title {
-            font-family: 'Avenir Demi', sans-serif;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            font-size: 1.75rem;
-            font-weight: 500;
-
-            @include tablet {
-                font-size: 2rem;
-                font-weight: 600;
-            }
-        }
-
-        &__icons {
+        &-icons {
             padding-right: 2rem;
             height: 1.5rem;
-
+    
             @include tablet {
                 padding-left: 1.5rem;
                 padding-right: 1rem;
                 height: 1.5rem;
             }
-
-
+    
+    
             &-instagram {
-                @extend .footer__container__social__icons;
+                @extend .footer-container__social-icons;
             }
-
+    
             &-facebook {
-                @extend .footer__container__social__icons;
+                @extend .footer-container__social-icons;
             }
-
+    
             &-twitter {
-                @extend .footer__container__social__icons;
+                @extend .footer-container__social-icons;
             }
         }
-
+    
     }
 
+    
 
+    &__title {
+        font-family: 'Avenir Demi', sans-serif;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1.75rem;
+        font-weight: 500;
+
+        @include tablet {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
 
     &__contact {
         padding: 1rem;
@@ -94,65 +94,64 @@
 
         &-info {
             padding-bottom: 1.5rem;
-
             @include tablet {
                 padding-right: 1rem;
                 width: auto;
-            }
+            }    
+        }
 
-            &__title {
-                @extend .footer__container__contact-info;
-                font-family: 'Avenir Demi', sans-serif;
-                font-size: .8125rem;
-                line-height: 1.125rem;
-                font-weight: 600;
+        &-title {
+            @extend .footer-container__contact-info;
+            font-family: 'Avenir Demi', sans-serif;
+            font-size: .8125rem;
+            line-height: 1.125rem;
+            font-weight: 600;
+
+            @include tablet {
+                font-size: 1rem;
+                padding-top: 2rem;
+                line-height: 1.5rem;
+            }
+        }
+
+        &-address {
+            @extend .footer-container__contact-info;
+            font-size: .8125rem;
+
+            @include tablet {
+                font-size: 1rem;
+                padding-top: 1rem;
+                line-height: 1.5rem;
+            }
+        }
+
+        &-email {
+            @extend .footer-container__contact-info;
+            font-size: .875rem;
+            font-weight: 400;
+
+            @include tablet {
+                font-size: 1rem;
+                position: relative;
+                padding-top: 1rem;
+            }
+            //email link styling
+            a {
+                text-decoration: none;
+                color: $primary-text-color-dark-background;
 
                 @include tablet {
-                    font-size: 1rem;
-                    padding-top: 2rem;
-                    line-height: 1.5rem;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
                 }
             }
 
-            &__address {
-                @extend .footer__container__contact-info;
-                font-size: .8125rem;
-
-                @include tablet {
-                    font-size: 1rem;
-                    padding-top: 1rem;
-                    line-height: 1.5rem;
-                }
-            }
-
-            &__email {
-                @extend .footer__container__contact-info;
-                font-size: .875rem;
-                font-weight: 400;
-
-                @include tablet {
-                    font-size: 1rem;
-                    position: relative;
-                    padding-top: 1rem;
-                }
-                //email link styling
-                a {
-                    text-decoration: none;
-                    color: $primary-text-color-dark-background;
-
-                    @include tablet {
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                    }
-                }
-
-            }
         }
     }
 
-    &-copyright {
-        @extend .footer__container__contact;
+    &__copyright {
+        @extend .footer-container__contact;
         font-size: 0.75rem;
         padding-bottom: 1.5rem;
 
