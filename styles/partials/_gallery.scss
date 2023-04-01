@@ -2,7 +2,7 @@
 @use '../partials/mixins' as *;
 
 
-.gallery__container {
+.gallery-container {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -14,8 +14,8 @@
 
     }
 
-    &-title {
-        @extend .gallery__container;
+    &__title {
+        @extend .gallery-container;
         padding: 1rem;
 
         @include tablet {
@@ -26,7 +26,7 @@
         }
     }
 
-    &-list {
+    &__list {
         list-style: none;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -34,28 +34,27 @@
         @include tablet {
             column-count: 3;
             padding: 2rem;
+        }   
+    }
+
+    &__photo {
+        width: 100%;
+        padding-bottom: 1rem;
+
+        @include tablet {
+            padding-bottom: 1rem;
+            padding-right: 0.5rem;
         }
 
-        &__listitem-photo {
-            width: 100%;
-            padding-bottom: 1rem;
+        //deep dive item for hover over the images on the gallery
+        @include desktop {
+            filter: grayscale(1);
 
-            @include tablet {
-                padding-bottom: 1rem;
-                padding-right: 0.5rem;
-            }
-
-            //deep dive item for hover over the images on the gallery
-            @include desktop {
-                filter: grayscale(1);
-
-                &:hover {
-                    filter: grayscale(0);
-                    transition-duration: 0.5s;
-                    transition-property: transform;
-                    transform: scale(1.05);
-
-                }
+            &:hover {
+                filter: grayscale(0);
+                transition-duration: 0.5s;
+                transition-property: transform;
+                transform: scale(1.05);
             }
         }
     }
