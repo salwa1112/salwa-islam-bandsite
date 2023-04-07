@@ -30,97 +30,74 @@ const historicalComments = [
     }
 ]
 
-document.addEventListener('DOMContentLoaded', () => {  
-    //load Previous Comments
-    loadHistoricalComments();
+function loadHistoricalComments() {
+    if (historicalComments.length === 0) return;
 
-    const commentButton = document.querySelector('.comments-section__btn');
-    commentButton.addEventListener('click', (e) => {
-        //Stop propagation on button click
-        e.stopPropagation();
-    });
-
-    const commentSubmissionForm = document.querySelector('.comments-section__frm');
-    commentSubmissionForm.addEventListener('submit', onCommentSubmitted);
-});
-
-
-function loadHistoricalComments(){
-    if(historicalComments.length === 0) return;
-
-    //Sort by date asc, this is to insert the latest comment at the top
-    historicalComments.sort((a,b) => {
+    // Sort by date asc, this is to insert the latest comment at the top
+    historicalComments.sort((a, b) => {
         return new Date(a.post_date).getTime() - new Date(b.post_date).getTime();
     });
 
 
-    //const ulComments = getElement('ul', 'comments-list');
-
-    historicalComments.forEach( (comment) => {
-        addComment(comment);
+    historicalComments.forEach((comment) => {
+        displayComment(comment);
     });
-
-    //Add top border after adding historical comments
-    const ulComments = document.querySelector('.comments-section__list');
-    const commentsSection = document.querySelector('.comments-section');
-    const divider = getElement('hr','comments-section__divider');
-    commentsSection.insertBefore(divider, ulComments);
 }
 
-function onCommentSubmitted(event){
-//  Prevent default submit action
+function onCommentSubmitted(event) {
+    //  Prevent default submit action
     event.preventDefault();
 
     const currentDate = new Date();
     const comment = {
         img_src: "./assets/images/default.jpg",
         author_name: event.target.name.value,
-        post_date: `${(currentDate.getMonth()+1).toString().padStart(2,'0')}/
-            ${currentDate.getDate().toString().padStart(2,'0')}/${currentDate.getFullYear()}`,
+        post_date: `${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/
+            ${currentDate.getDate().toString().padStart(2, '0')}/${currentDate.getFullYear()}`,
         description: event.target.comment.value
     };
 
     //Add comment
-    addComment(comment);
+    displayComment(comment);
 
     //Clear inputs from form
     clearForm();
 }
 
-function addComment(comment){
-    if(typeof(comment) != "object")
+function displayComment(comment) {
+    if (typeof (comment) != "object")
         return;
 
     let ulComments = document.querySelector('.comments-section__list');
 
-    if(!ulComments){
+    if (!ulComments) {
         //No previous comments list found, create a new one
         ulComments = getElement('ul', 'comments-section__list');
     }
 
     const listItem = getElement('li', 'comments-section__list-item');
-    
+
     const listItemContentRoot = getElement('div', 'comments-section__list-item-content');
     const commentsSectionImage = getElement('img', 'comments-section__img');
     const commentContainer = getElement('div', 'comments-section__posted-comment');
-    const commentContainerChild_Header = getElement('div', 'comments-section__list-item-header');
+    const commentHeader = getElement('div', 'comments-section__list-item-header');
     const commentHeaderChild_Name = getElement('h3', 'comments-section__list-item-author-name');
     const commentHeaderChild_PostDate = getElement('p', 'comments-section__list-item-post-date');
-    const commentContinerChild_Description = getElement('p', 'comments-section__list-item-description');
+    const commentContainerChild_Description = getElement('p', 'comments-section__list-item-description');
     const commentDivider = getElement('hr', 'comments-section__divider');
-    
-    //Append  header items to the header container
-    commentContainerChild_Header.appendChild(commentHeaderChild_Name);
-    commentContainerChild_Header.appendChild(commentHeaderChild_PostDate);
+
+    //Append header items to the header container
+    commentHeader.appendChild(commentHeaderChild_Name);
+    commentHeader.appendChild(commentHeaderChild_PostDate);
 
     //Append header and comment description to the comment continer
-    commentContainer.appendChild(commentContainerChild_Header);
-    commentContainer.appendChild(commentContinerChild_Description);
+    commentContainer.appendChild(commentHeader);
+    commentContainer.appendChild(commentContainerChild_Description);
 
-    //Append image and the comment container and the diveder to the list item class
+    //Append image and the comment container and the divider to the list item class
     listItemContentRoot.appendChild(commentsSectionImage);
     listItemContentRoot.appendChild(commentContainer);
-   
+
     //Add to the list item
     listItem.appendChild(listItemContentRoot);
     listItem.appendChild(commentDivider);
@@ -128,7 +105,7 @@ function addComment(comment){
     //Add data to the items
     commentHeaderChild_Name.textContent = comment.author_name;
     commentHeaderChild_PostDate.textContent = comment.post_date;
-    commentContinerChild_Description.textContent = comment.description;
+    commentContainerChild_Description.textContent = comment.description;
     commentsSectionImage.src = comment.img_src;
     commentsSectionImage.alt = `profile photo of ${comment.author_name}`;
 
@@ -137,6 +114,16 @@ function addComment(comment){
     ulComments.insertBefore(listItem, ulComments.firstChild);
     const commentSection = document.querySelector('.comments-section');
     commentSection.appendChild(ulComments);
+
+    //Add top border after adding historical comments
+    ulComments = document.querySelector('.comments-section__list');
+    const commentsSection = document.querySelector('.comments-section');
+
+    const topDivider = document.querySelector('.comments-section__list-divider');
+    if (!topDivider) {
+        const divider = getElement('hr', 'comments-section__list-divider');
+        commentsSection.insertBefore(divider, ulComments);
+    }
 }
 
 function clearForm() {
@@ -144,8 +131,22 @@ function clearForm() {
     form.reset();
 }
 
-function getElement(tagName, className){
+function getElement(tagName, className) {
     const element = document.createElement(tagName);
     element.classList.add(className);
     return element;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    //load Previous Comments
+    loadHistoricalComments();
+
+    const commentButton = document.querySelector('.comments-section__btn');
+    commentButton.addEventListener('click', (event) => {
+        //Stop propagation on button click
+        event.stopPropagation();
+    });
+
+    const commentSubmissionForm = document.querySelector('.comments-section__frm');
+    commentSubmissionForm.addEventListener('submit', onCommentSubmitted);
+});

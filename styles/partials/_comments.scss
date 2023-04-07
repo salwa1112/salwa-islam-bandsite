@@ -150,4 +150,8 @@
         border: 0.0625rem solid $mercury;
         margin: 0 1rem 1rem 1rem;
     }
+
+    &__list-divider{
+        @extend .comments-section__divider;
+    }
 }

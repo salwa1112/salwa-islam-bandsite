@@ -606,11 +606,10 @@ header {
   word-break: break-all;
   word-break: break-word;
 }
-.comments-section__divider {
+.comments-section__divider, .comments-section__list-divider {
   border: 0.0625rem solid #E1E1E1;
   margin: 0 1rem 1rem 1rem;
 }
-
 @font-face {
   font-family: "Avenir", sans-serif;
   src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
