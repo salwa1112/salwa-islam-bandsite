@@ -494,7 +494,7 @@ header {
 }
 @media (min-width: 768px) {
   .comments-section__form-content {
-    padding: 1rem 3rem 1rem 3rem;
+    padding: 1rem 6.5rem 1rem 3rem;
   }
 }
 .comments-section__frm {
@@ -588,7 +588,7 @@ header {
 }
 @media (min-width: 768px) {
   .comments-section__list {
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 5.5rem 1rem 2rem;
   }
 }
 .comments-section__list-item-content {
@@ -628,7 +628,7 @@ header {
 }
 @media (min-width: 768px) {
   .comments-section__list-divider {
-    margin: 0rem 3rem 1rem 3rem;
+    margin: 0rem 6.5rem 1rem 3rem;
   }
 }
 

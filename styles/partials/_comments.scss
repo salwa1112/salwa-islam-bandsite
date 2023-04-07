@@ -18,7 +18,7 @@
         padding: 1rem 1rem 1rem 1rem;
 
         @include tablet {
-            padding: 1rem 3rem 1rem 3rem;
+            padding: 1rem 6.5rem 1rem 3rem;
         }
     }
 
@@ -115,7 +115,7 @@
         padding: 0;
 
         @include tablet {
-            padding: 1rem 2rem 1rem 2rem;
+            padding: 1rem 5.5rem 1rem 2rem;
         }
     }
 
@@ -169,7 +169,7 @@
         @extend .comments-section__divider;
 
         @include tablet {
-            margin: 0rem 3rem 1rem 3rem;
+            margin: 0rem 6.5rem 1rem 3rem;
         }
     }
 }
