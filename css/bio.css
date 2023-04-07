@@ -492,6 +492,11 @@ header {
   flex-direction: row;
   padding: 1rem 1rem 1rem 1rem;
 }
+@media (min-width: 768px) {
+  .comments-section__form-content {
+    padding: 1rem 3rem 1rem 3rem;
+  }
+}
 .comments-section__frm {
   flex-wrap: wrap;
   padding-left: 1rem;
@@ -563,6 +568,12 @@ header {
 .comments-section__btn:hover {
   background-color: black;
 }
+@media (min-width: 768px) {
+  .comments-section__btn {
+    width: 25%;
+    float: right;
+  }
+}
 .comments-section__lbl {
   font-family: "Avenir Demi", sans-serif;
   font-size: 0.8rem;
@@ -574,6 +585,11 @@ header {
 .comments-section__list {
   list-style: none;
   padding: 0;
+}
+@media (min-width: 768px) {
+  .comments-section__list {
+    padding: 1rem 2rem 1rem 2rem;
+  }
 }
 .comments-section__list-item-content {
   flex-direction: row;
@@ -610,6 +626,12 @@ header {
   border: 0.0625rem solid #E1E1E1;
   margin: 0 1rem 1rem 1rem;
 }
+@media (min-width: 768px) {
+  .comments-section__list-divider {
+    margin: 0rem 3rem 1rem 3rem;
+  }
+}
+
 @font-face {
   font-family: "Avenir", sans-serif;
   src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");

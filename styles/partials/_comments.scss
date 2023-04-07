@@ -6,15 +6,20 @@
     flex-direction: column;
     font-family: 'Avenir', sans-serif;
 
+
     &__title {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
     &__form-content {
         @extend .comments-section;
         flex-direction: row;
         padding: 1rem 1rem 1rem 1rem;
+
+        @include tablet {
+            padding: 1rem 3rem 1rem 3rem;
+        }
     }
 
     &__frm {
@@ -89,6 +94,11 @@
         &:hover {
             background-color: black;
         }
+
+        @include tablet {
+            width: 25%;
+            float: right;
+        }
     }
 
     &__lbl {
@@ -103,6 +113,10 @@
     &__list {
         list-style: none;
         padding: 0;
+
+        @include tablet {
+            padding: 1rem 2rem 1rem 2rem;
+        }
     }
 
     &__list-item-content {
@@ -117,8 +131,8 @@
         flex-direction: column;
         width: 100%;
     }
-    
-    &__list-item { 
+
+    &__list-item {
         &-header {
             @extend .comments-section;
             flex-direction: row;
@@ -151,7 +165,11 @@
         margin: 0 1rem 1rem 1rem;
     }
 
-    &__list-divider{
+    &__list-divider {
         @extend .comments-section__divider;
+
+        @include tablet {
+            margin: 0rem 3rem 1rem 3rem;
+        }
     }
 }
