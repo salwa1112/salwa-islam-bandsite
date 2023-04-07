@@ -1,4 +1,4 @@
-const historicalComments = [
+const allComments = [
     {
         img_src: "./assets/images/default.jpg",
         author_name: "Connor Walton",
@@ -30,16 +30,16 @@ const historicalComments = [
     }
 ]
 
-function loadHistoricalComments() {
-    if (historicalComments.length === 0) return;
+function loadComments() {
+    if (allComments.length === 0) return;
 
     // Sort by date asc, this is to insert the latest comment at the top
-    historicalComments.sort((a, b) => {
+    allComments.sort((a, b) => {
         return new Date(a.post_date).getTime() - new Date(b.post_date).getTime();
     });
 
 
-    historicalComments.forEach((comment) => {
+    allComments.forEach((comment) => {
         displayComment(comment);
     });
 }
@@ -57,8 +57,14 @@ function onCommentSubmitted(event) {
         description: event.target.comment.value
     };
 
-    //Add comment
-    displayComment(comment);
+    //push the new added code to the array
+    allComments.push(comment);
+    //clear previous comments from the page
+    const ulComments = document.querySelector('.comments-section__list');
+    //using replaceChildren() function instead of innerHTML to clear the content
+    ulComments.replaceChildren();
+    //load comments
+    loadComments();
 
     //Clear inputs from form
     clearForm();
@@ -115,15 +121,15 @@ function displayComment(comment) {
     const commentSection = document.querySelector('.comments-section');
     commentSection.appendChild(ulComments);
 
-    //Add top border after adding historical comments
-    ulComments = document.querySelector('.comments-section__list');
-    const commentsSection = document.querySelector('.comments-section');
-
-    const topDivider = document.querySelector('.comments-section__list-divider');
-    if (!topDivider) {
-        const divider = getElement('hr', 'comments-section__list-divider');
-        commentsSection.insertBefore(divider, ulComments);
-    }
+        //Add top border after adding historical comments
+        ulComments = document.querySelector('.comments-section__list');
+        const commentsSection = document.querySelector('.comments-section');
+        
+        const topDivider = document.querySelector('.comments-section__list-divider');
+        if(!topDivider) {
+            const divider = getElement('hr', 'comments-section__list-divider');
+            commentsSection.insertBefore(divider, ulComments);
+        }
 }
 
 function clearForm() {
@@ -139,7 +145,7 @@ function getElement(tagName, className) {
 
 document.addEventListener('DOMContentLoaded', () => {
     //load Previous Comments
-    loadHistoricalComments();
+    loadComments();
 
     const commentButton = document.querySelector('.comments-section__btn');
     commentButton.addEventListener('click', (event) => {
