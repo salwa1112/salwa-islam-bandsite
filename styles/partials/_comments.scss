@@ -10,6 +10,10 @@
     &__title {
         padding-left: 1rem;
         padding-right: 1rem;
+
+        @include tablet {
+            padding-left: 2rem;
+        }
     }
 
     &__form-content {
@@ -18,7 +22,7 @@
         padding: 1rem 1rem 1rem 1rem;
 
         @include tablet {
-            padding: 1rem 6.5rem 1rem 3rem;
+            padding: 1rem 6.5rem 1rem 4rem;
         }
     }
 
@@ -115,7 +119,7 @@
         padding: 0;
 
         @include tablet {
-            padding: 1rem 5.5rem 1rem 2rem;
+            padding: 1rem 5.5rem 1rem 3rem;
         }
     }
 
@@ -169,7 +173,7 @@
         @extend .comments-section__divider;
 
         @include tablet {
-            margin: 0rem 6.5rem 1rem 3rem;
+            margin: 0rem 6.6rem 0 4.1rem;
         }
     }
 }
