@@ -495,6 +495,7 @@ header {
 }
 @media (min-width: 1280px) {
   .comments-section__title {
+    font-size: 2.2rem;
     padding-left: 7.6rem;
   }
 }
@@ -509,9 +510,9 @@ header {
 }
 @media (min-width: 1280px) {
   .comments-section__form-content {
-    justify-content: center;
-    width: 60%;
-    margin-left: 15rem;
+    padding-top: 3rem;
+    padding-right: 25rem;
+    margin-left: 20rem;
   }
 }
 .comments-section__frm {
@@ -610,9 +611,8 @@ header {
 }
 @media (min-width: 1280px) {
   .comments-section__list {
-    justify-content: center;
-    width: 60%;
-    margin-left: 15rem;
+    margin-right: 18.5rem;
+    margin-left: 20rem;
   }
 }
 .comments-section__list-item-content {
@@ -657,9 +657,8 @@ header {
 }
 @media (min-width: 1280px) {
   .comments-section__list-divider {
-    justify-content: center;
-    width: 48.9%;
-    margin-left: 19rem;
+    margin-right: 25rem;
+    margin-left: 24rem;
   }
 }
 
