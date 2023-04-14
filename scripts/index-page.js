@@ -121,15 +121,17 @@ function displayComment(comment) {
     const commentSection = document.querySelector('.comments-section');
     commentSection.appendChild(ulComments);
 
-        //Add top border after adding historical comments
-        ulComments = document.querySelector('.comments-section__list');
-        const commentsSection = document.querySelector('.comments-section');
-        
-        const topDivider = document.querySelector('.comments-section__list-divider');
-        if(!topDivider) {
-            const divider = getElement('hr', 'comments-section__list-divider');
-            commentsSection.insertBefore(divider, ulComments);
-        }
+    //Add top border after adding historical comments
+    ulComments = document.querySelector('.comments-section__list');
+    const commentsSection = document.querySelector('.comments-section');
+
+
+
+    const topDivider = document.querySelector('.comments-section__list-divider');
+    if (!topDivider) {
+        const divider = getElement('hr', 'comments-section__list-divider');
+        commentsSection.insertBefore(divider, ulComments);
+    }
 }
 
 function clearForm() {

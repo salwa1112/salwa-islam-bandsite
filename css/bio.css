@@ -484,18 +484,26 @@ header {
   flex-direction: column;
   font-family: "Avenir", sans-serif;
 }
+@media (min-width: 1280px) {
+  .comments-section, .comments-section__list-item-header, .comments-section__list-item-content, .comments-section__form-content {
+    justify-content: center;
+  }
+}
 .comments-section__title {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 @media (min-width: 768px) {
   .comments-section__title {
+    padding-top: 3rem;
     padding-left: 2rem;
+    font-size: 2rem;
   }
 }
 @media (min-width: 1280px) {
   .comments-section__title {
-    font-size: 2.2rem;
+    padding-top: 3rem;
+    font-size: 2.25rem;
     padding-left: 7.6rem;
   }
 }
@@ -505,14 +513,16 @@ header {
 }
 @media (min-width: 768px) {
   .comments-section__form-content {
-    padding: 1rem 6.5rem 1rem 4rem;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding: 2rem 0 1rem 0;
   }
 }
 @media (min-width: 1280px) {
   .comments-section__form-content {
-    padding-top: 3rem;
-    padding-right: 25rem;
-    margin-left: 20rem;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    padding: 3rem 0rem 1rem 0rem;
   }
 }
 .comments-section__frm {
@@ -539,6 +549,11 @@ header {
 }
 .comments-section__frm input::placeholder {
   color: black;
+}
+@media (min-width: 1280px) {
+  .comments-section__frm input {
+    height: 2.5rem;
+  }
 }
 .comments-section__frm textarea {
   width: 100%;
@@ -570,6 +585,15 @@ header {
      object-fit: cover;
   -o-object-position: 30%;
      object-position: 30%;
+  margin-top: 1.375rem;
+}
+@media (min-width: 1280px) {
+  .comments-section__img {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 1.25rem;
+    margin-top: 1.375rem;
+  }
 }
 .comments-section__btn {
   width: 100%;
@@ -602,17 +626,18 @@ header {
 }
 .comments-section__list {
   list-style: none;
-  padding: 0;
+  padding: 0 0 1rem 0rem;
 }
 @media (min-width: 768px) {
   .comments-section__list {
-    padding: 1rem 5.5rem 1rem 3rem;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
 }
 @media (min-width: 1280px) {
   .comments-section__list {
-    margin-right: 18.5rem;
-    margin-left: 20rem;
+    margin-left: 30vw;
+    margin-right: 30vw;
   }
 }
 .comments-section__list-item-content {
@@ -620,10 +645,17 @@ header {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+@media (min-width: 768px) {
+  .comments-section__list-item-content {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
 .comments-section__posted-comment {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-top: 1.375rem;
 }
 .comments-section__list-item-header {
   flex-direction: row;
@@ -646,19 +678,29 @@ header {
   word-break: break-all;
   word-break: break-word;
 }
-.comments-section__divider, .comments-section__list-divider {
+.comments-section__divider {
   border: 0.0625rem solid #E1E1E1;
-  margin: 0 1rem 1rem 1rem;
+  margin: 0 1rem 0rem 1rem;
+}
+@media (min-width: 768px) {
+  .comments-section__divider {
+    margin: 0rem;
+  }
+}
+.comments-section__list-divider {
+  border: 0.0625rem solid #E1E1E1;
+  margin: 0 1rem 0rem 1rem;
 }
 @media (min-width: 768px) {
   .comments-section__list-divider {
-    margin: 0rem 6.6rem 0 4.1rem;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
 }
 @media (min-width: 1280px) {
   .comments-section__list-divider {
-    margin-right: 25rem;
-    margin-left: 24rem;
+    margin-left: 30vw;
+    margin-right: 30vw;
   }
 }
 
