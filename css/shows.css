@@ -27,8 +27,6 @@
     margin-top: 2rem;
     -o-object-fit: cover;
        object-fit: cover;
-    -o-object-position: -30%;
-       object-position: -30%;
   }
 }
 .hero-section-shows__album-container {
@@ -50,6 +48,7 @@
 @media (min-width: 1280px) {
   .hero-section-shows__album-container {
     height: 75vw;
+    top: 2rem;
   }
 }
 .hero-section-shows__album-title {

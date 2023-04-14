@@ -38,7 +38,6 @@
             height: 75vw;
             margin-top: 2rem;
             object-fit: cover;
-            object-position: -30%;
         }
 
     }
@@ -60,6 +59,7 @@
 
         @include desktop {
             height: 75vw;
+            top: 2rem;
         }
 
     }
