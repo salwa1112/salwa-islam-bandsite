@@ -189,11 +189,18 @@
     padding-top: 3rem;
   }
 }
+.shows-section__list-item:first-child {
+  display: none;
+}
 @media (min-width: 768px) {
   .shows-section__list-item {
     margin-left: 1rem;
     margin-right: 1rem;
     align-items: start;
+  }
+  .shows-section__list-item:first-child {
+    display: block;
+    height: 4.375rem;
   }
   .shows-section__list-item h2 {
     display: none;
