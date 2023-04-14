@@ -97,14 +97,21 @@ header {
   top: 0;
   left: 0;
   height: 50vh;
-  background-color: #323232;
-  opacity: 0.3;
+  background-color: rgba(0, 0, 0, 0.4862745098);
+  opacity: 0.6;
+}
+@media (min-width: 768px) {
+  .hero-container:before, .hero-container__content:before {
+    height: 85vh;
+    background-color: rgba(0, 0, 0, 0.4862745098);
+    opacity: 0.6;
+  }
 }
 @media (min-width: 1280px) {
   .hero-container:before, .hero-container__content:before {
     height: 85vh;
-    background-color: #323232;
-    opacity: 0.3;
+    background-color: rgba(0, 0, 0, 0.4862745098);
+    opacity: 0.6;
   }
 }
 .hero-container__content {
@@ -114,6 +121,11 @@ header {
   height: 50vh;
   align-items: center;
   font-family: "Avenir", sans-serif;
+}
+@media (min-width: 768px) {
+  .hero-container__content {
+    height: 85vh;
+  }
 }
 @media (min-width: 1280px) {
   .hero-container__content {

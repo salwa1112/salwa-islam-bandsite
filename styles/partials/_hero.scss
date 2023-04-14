@@ -17,14 +17,20 @@
         top: 0;
         left: 0;
         height: 50vh;
-        background-color: #323232;
-        opacity: 0.3;
+        background-color: #0000007c;
+        opacity: 0.6;
+
+        @include tablet {
+            height: 85vh;
+            background-color: #0000007c;
+            opacity: 0.6;
+        }
 
         //increased hero image height for desktop
         @include desktop {
             height: 85vh;
-            background-color: #323232;
-            opacity: 0.3;
+            background-color: #0000007c;
+            opacity: 0.6;
         }
 
     }
@@ -38,6 +44,10 @@
         height: 50vh;
         align-items: center;
         font-family: 'Avenir', sans-serif;
+
+        @include tablet {
+            height: 85vh;
+        }
 
         @include desktop {
             height: 85vh;

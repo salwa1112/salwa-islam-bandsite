@@ -52,8 +52,7 @@ function onCommentSubmitted(event) {
     const comment = {
         img_src: "./assets/images/default.jpg",
         author_name: event.target.name.value,
-        post_date: `${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/
-            ${currentDate.getDate().toString().padStart(2, '0')}/${currentDate.getFullYear()}`,
+        post_date: `${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/${currentDate.getDate().toString().padStart(2, '0')}/${currentDate.getFullYear()}`,
         description: event.target.comment.value
     };
 
