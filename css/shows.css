@@ -12,12 +12,28 @@
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 100%;
+  height: 90vw;
   margin-top: 6rem;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__img {
+    height: 85vw;
+    margin-top: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__img {
+    height: 75vw;
+    margin-top: 2rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: -30%;
+       object-position: -30%;
+  }
 }
 .hero-section-shows__album-container {
   width: 100%;
-  height: 85vw;
+  height: 90vw;
   position: absolute;
   color: white;
   top: 6rem;
@@ -25,11 +41,35 @@
   font-weight: 300;
   background-color: rgba(46, 44, 44, 0.418);
 }
+@media (min-width: 768px) {
+  .hero-section-shows__album-container {
+    height: 85vw;
+    top: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__album-container {
+    height: 75vw;
+  }
+}
 .hero-section-shows__album-title {
   color: white;
   font-size: 0.875rem;
   font-weight: 300;
-  padding: 2.125rem 1rem 1rem 1rem;
+  padding: 15dvw 1rem 1rem 1rem;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__album-title {
+    font-size: 2rem;
+    padding: 20dvw 1rem 1rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__album-title {
+    font-size: 1.5rem;
+    padding: 18rem 1rem 0rem 8rem;
+    font-weight: 600;
+  }
 }
 .hero-section-shows__hero-title {
   padding: 0rem 1rem 1rem 1rem;
@@ -38,9 +78,53 @@
   word-wrap: break-word;
   width: 75%;
 }
-.hero-section-shows__iframe {
-  height: 9.375rem;
-  padding: 0rem 1rem 3rem 1rem;
+@media (min-width: 768px) {
+  .hero-section-shows__hero-title {
+    font-size: 4rem;
+    width: 80%;
+    font-weight: 600;
+    padding: 0rem 1rem 1rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__hero-title {
+    font-weight: 300;
+    padding: 1rem 3rem 0rem 2rem;
+    word-wrap: break-word;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__soundcloud-container {
+    display: flex;
+    flex-direction: row;
+    padding-right: 6rem;
+    padding-left: 6rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.hero-section-shows__soundcloud {
+  width: 100%;
+  height: 110px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__soundcloud {
+    width: 69%;
+    height: 177px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__soundcloud {
+    width: 70%;
+    height: 11.0625rem;
+    margin-top: 0rem;
+  }
 }
 
 @font-face {

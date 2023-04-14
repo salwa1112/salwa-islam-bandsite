@@ -26,20 +26,42 @@
         background-position: center;
         background-size: cover;
         width: 100%;
-        height: 100%;
+        height: 90vw;
         margin-top: 6rem;
+
+        @include tablet {
+            height: 85vw;
+            margin-top: 2.5rem;
+        }
+
+        @include desktop {
+            height: 75vw;
+            margin-top: 2rem;
+            object-fit: cover;
+            object-position: -30%;
+        }
 
     }
 
     &__album-container {
         width: 100%;
-        height: 85vw;
+        height: 90vw;
         position: absolute;
         color: white;
         top: 6rem;
         font-size: 18px;
         font-weight: 300;
         background-color: rgba(46, 44, 44, 0.418);
+     
+        @include tablet {
+            height: 85vw;
+            top: 2.5rem;
+        }
+
+        @include desktop {
+            height: 75vw;
+        }
+
     }
 
 
@@ -47,7 +69,19 @@
         color: white;
         font-size: 0.875rem;
         font-weight: 300;
-        padding: 2.125rem 1rem 1rem 1rem;
+        padding: 15dvw 1rem 1rem 1rem;
+
+        @include tablet {
+            font-size: 2rem;
+            padding: 20dvw 1rem 1rem 2rem;
+        }
+
+        
+        @include desktop {
+            font-size: 1.5rem;
+            padding: 18rem 1rem 0rem 8rem;
+            font-weight: 600;
+        }
     }
 
     &__hero-title {
@@ -57,12 +91,54 @@
         word-wrap: break-word;
         width: 75%;
 
+        @include tablet {
+            font-size: 4rem;
+            width: 80%;
+            font-weight: 600;
+            padding: 0rem 1rem 1rem 2rem;
+        }
+
+        @include desktop {
+            font-weight: 300;
+            padding: 1rem 3rem 0rem 2rem;
+            word-wrap: break-word;
+        }
+
     }
 
-    &__iframe {
-        height: 9.375rem;
-        padding: 0rem 1rem 3rem 1rem;
+    &__soundcloud-container {
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+            padding-right: 6rem;
+            padding-left: 6rem;
+            align-items: center;
+            justify-content: space-between;
+
+        }
     }
 
+    &__soundcloud {
+        width: 100%;
+        height: 110px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+        @include tablet {
+            width: 69%;
+            height: 177px;
+            padding-right: 2rem;
+            padding-left: 2rem;
+            padding-top: 2rem;
+            margin-top: 3rem;        
+        }
+
+        @include desktop {
+            width: 70%;
+            height: 11.0625rem;
+            margin-top: 0rem;
+
+        }
+    }
 }
 
