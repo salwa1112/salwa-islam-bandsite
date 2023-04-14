@@ -1,0 +1,68 @@
+@use '../variables' as *;
+@use './mixins' as *;
+
+@font-face {
+    font-family: 'Avenir', sans-serif;
+    src: url('/assets/fonts/AvenirNextLTPro-Bold.otf') format('otf');
+    src: url('/assets/fonts/AvenirNextLTPro-Regular.otf') format('otf');
+}
+
+
+.hero-section-shows {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Avenir', sans-serif;
+
+    // &:before {
+    //     content: "";
+    //     background-color: black;
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 85vw;
+    //     margin-top: 6rem;
+    // }
+
+    &__img {
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        margin-top: 6rem;
+
+    }
+
+    &__album-container {
+        width: 100%;
+        height: 85vw;
+        position: absolute;
+        color: white;
+        top: 6rem;
+        font-size: 18px;
+        font-weight: 300;
+        background-color: rgba(46, 44, 44, 0.418);
+    }
+
+
+    &__album-title {
+        color: white;
+        font-size: 0.875rem;
+        font-weight: 300;
+        padding: 2.125rem 1rem 1rem 1rem;
+    }
+
+    &__hero-title {
+        padding: 0rem 1rem 1rem 1rem;
+        font-size: 24px;
+        font-weight: 400;
+        word-wrap: break-word;
+        width: 75%;
+
+    }
+
+    &__iframe {
+        height: 9.375rem;
+        padding: 0rem 1rem 3rem 1rem;
+    }
+
+}
+

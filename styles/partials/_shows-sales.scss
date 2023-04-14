@@ -1,0 +1,145 @@
+@use '../variables' as *;
+@use './mixins' as *;
+
+@font-face {
+    font-family: 'Avenir', sans-serif;
+    src: url('/assets/fonts/AvenirNextLTPro-Bold.otf') format('otf');
+    src: url('/assets/fonts/AvenirNextLTPro-Regular.otf') format('otf');
+}
+
+
+.shows-section {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Avenir', sans-serif;
+    padding-bottom: 1rem;
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: start;
+        padding: 0 5rem 3rem 5rem;
+    }
+
+    &__show {
+        @extend .shows-section;
+        padding: 0;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1rem 0rem 0rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 2rem 1rem 2rem 1rem;
+
+        @include tablet {
+            font-size: 2.5rem;
+            padding: 4rem 1rem 2rem 2rem;     
+        }
+
+        @include desktop {
+            padding: 4rem 10rem 2rem 3rem;     
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+
+        @include desktop {
+            width: 100%;
+            padding-top: 3rem;
+        }
+    
+    }
+
+    &__list-item {
+        @include tablet {
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            h2 {
+                display: none;
+            }
+
+            &:first-child h2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 0.875rem;
+                margin-bottom: 2rem;
+                font-weight: 600;
+            }
+            
+            &:first-child button {
+                margin-top: 4.5rem;
+            }
+        }
+    }
+
+
+    &__show-details{
+        padding: 1rem 0 0.5rem 1rem;
+    }
+    
+    &__lbl {
+        font-size: 0.6875rem;
+        font-stretch: expanded;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #AFAFAF;
+        padding-bottom: 1rem;
+
+        
+    }
+
+    &__date {
+        font-size: 13px;
+        font-stretch: expanded;
+        font-weight: 600;
+    }
+
+    &__venue, &__location {
+        font-size: 13px;
+        font-stretch: expanded;
+        font-weight: 300;
+    }
+
+    &__buy-button {
+        margin: 1rem 1rem 0 1rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        background-color: $bandsite-black;
+        color: white;
+        border-radius: .25rem;
+        font-stretch: ultra-expanded;
+        box-shadow: none;
+
+        &:hover {
+            background-color: black;
+        }
+
+        @include tablet {
+            margin: 0;
+            padding: 0 2rem 0 2rem;
+        }
+    }
+
+    &__divider {
+        border: 0.0625rem solid $mercury;
+        margin-top: 1rem;
+        width: 100%;
+
+        @include tablet {
+            margin: 1rem 1rem 0 0rem;
+        }
+    }
+
+}

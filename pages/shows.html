@@ -15,96 +15,137 @@
 <body>
     <!-- header shows -->
     <header>
-        <a class="header__logo--link" aria-label="header-logo" href="#">
+        <a class="header__link" aria-label="header-logo" href="#">
             <!-- I have changed the width, height and viewbox value to match the mockup -->
-            <img src="/assets/logos/Logo-bandsite-header.svg" alt="">
+            <img src="/assets/logos/Logo-bandsite-header.svg" alt="bandsite logo image">
         </a>
         <nav class="navheader">
             <ul class="navheader__list">
                 <li class="navheader__list-item">
-                    <a class="navheader__list-item__link" href="../index.html">Biography</a>
+                    <a class="navheader__link" href="../index.html">Biography</a>
                 </li>
                 <li class="navheader__list-item">
-                    <a class="navheader__list-item__link navheader__list-item__link--active" href="shows.html">Shows</a>
+                    <a class="navheader__link navheader__link--active" href="#">Shows</a>
                 </li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section Shows -->
-    <section class="hero__container-shows">
-        <div class="hero__container-shows__content">
-            <!-- add the background in shows.css -->
-            <article class="hero__container-shows__subtitle">Beautiful Beasts Album</article>
-            <h1 class="hero__container-shows__content-title">Queen of Yellow x For The Stings</h1>
-            <div class="hero__container-shows__content-spotify__iFrame">Spotify iFrame</div>
+    <section class="hero-section-shows">
+        <div class="hero-section-shows__content">
+            <img class="hero-section-shows__img" src="../assets/images/hero-shows.jpg" alt="hero shows image">
+            <div class="hero-section-shows__album-container">
+                <h3 class="hero-section-shows__album-title">Beautiful Beasts Album</h3>
+                <h2 class="hero-section-shows__hero-title">Queen of Yellow x For The Stings</h2>
+                <!-- <iframe class="hero-section-shows__iframe" title="Blur" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/509639583&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe> -->
+                <iframe class="hero-section-shows__iframe" title="Blur" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/509639583&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
+            </div>        
         </div>
     </section>
 
-    <section class="shows__list">
-        <h1 class="shows__list-title">Shows</h1>
+    <section class="shows-section">
+        <h1 class="shows-section__title">Shows</h1>
         <!-- everything will bw populate from js -->
         <!-- date, venue, location, button -->
+        <ul class="shows-section__list">
+            <li class="shows-section__list-item">
+                <div class="shows-section__show">
+                    <div class="shows-section__show-details">
+                        <h2 class="shows-section__lbl">DATE</h2>
+                        <p class="shows-section__date">Mon Sept 06 2021</p>
+                    </div>
+                    <div class="shows-section__show-details">
+                        <h2 class="shows-section__lbl">VENUE</h2>
+                        <p class="shows-section__venue">Ronald Lane</p>
+                    </div>
+                    <div class="shows-section__show-details">
+                        <h2 class="shows-section__lbl">LOCATION</h2>
+                        <p class="shows-section__location">San Francisco, CA</p>
+                    </div>
+                    <button class="shows-section__buy-button" type="button">Buy Tickets</button>
+                </div>
+                <hr class="shows-section__divider" />
+            </li>
+            <li class="shows-section__list-item">
+                <div class="shows-section__show">
+                    <div class="shows-section__show-details">
+                        <h2 class="shows-section__lbl">DATE</h2>
+                        <p class="shows-section__date">Mon Sept 06 2021</p>
+                    </div>
+                    <div class="shows-section__show-details">
+                        <h2 class="shows-section__lbl">VENUE</h2>
+                        <p class="shows-section__venue">Ronald Lane</p>
+                    </div>
+                    <div class="shows-section__show-details">
+                        <h2 class="shows-section__lbl">LOCATION</h2>
+                        <p class="shows-section__location">San Francisco, CA</p>
+                    </div>
+                    <button class="shows-section__buy-button" type="button">Buy Tickets</button>
+                </div>
+                <hr class="shows-section__divider" />
+            </li>
+        </ul>
     </section>
 
     
     <!-- Footer Section -->
-    <footer class="footer__container">
-        <section class="footer__container__header">
-            <div class="footer__container__social">
-                <h1 class="footer__container__social-title">Get in Touch</h1>
-                <div class="footer__container__social__icons">
-                    <img class="footer__container__social__icons-instagram" src="assets/icons/svg/Icon-instagram.svg"
+    <footer class="footer-container">
+        <section class="footer-container__header">
+            <div class="footer-container__social">
+                <h1 class="footer-container__title">Get in Touch</h1>
+                <div class="footer-container__social-icons">
+                    <img class="footer-container__social-icons-instagram" src="assets/icons/svg/Icon-instagram.svg"
                         alt="">
-                    <img class="footer__container__social__icons-facebook" src="assets/icons/svg/Icon-facebook.svg"
+                    <img class="footer-container__social-icons-facebook" src="assets/icons/svg/Icon-facebook.svg"
                         alt="">
-                    <img class="footer__container__social__icons-twitter" src="assets/icons/svg/Icon-twitter.svg"
+                    <img class="footer-container__social-icons-twitter" src="assets/icons/svg/Icon-twitter.svg"
                         alt="">
                 </div>
             </div>
         </section>
-        <section class="footer__container__contact">
-            <div class="footer__container__contact-info">
-                <div class="footer__container__contact-info__title">
+        <section class="footer-container__contact">
+            <div class="footer-container__contact-info">
+                <div class="footer-container__contact-title">
                     <p>Cam Adams</p>
                     <p>The Bees Knees Management</p>
                 </div>
-                <div class="footer__container__contact-info__address">
+                <div class="footer-container__contact-address">
                     <p>503 Broadway Penthouse,</p>
                     <p>New York, NY 10012, USA</p>
                 </div>
-                <div class="footer__container__contact-info__email">
+                <div class="footer-container__contact-email">
                     <a href="mailto:">info@thebeesknees.com</a>
                 </div>
             </div>
-            <div class="footer__container__contact-info">
-                <div class="footer__container__contact-info__title">
+            <div class="footer-container__contact-info">
+                <div class="footer-container__contact-title">
                     <p>Pearl Gregg</p>
                     <p>Limitless Artist Group</p>
                 </div>
-                <div class="footer__container__contact-info__address">
+                <div class="footer-container__contact-address">
                     <p>Booking Agent for</p>
                     <p>USA / South America / Japan</p>
                 </div>
-                <div class="footer__container__contact-info__email">
+                <div class="footer-container__contact-email">
                     <a href="mailto:">pearl.gregg@limitlessag.com</a>
                 </div>
             </div>
             <div class="footer__container__contact-info">
-                <div class="footer__container__contact-info__title">
+                <div class="footer-container__contact-title">
                     <p>Carson Whyte</p>
                     <p>ARCH Entertainment</p>
                 </div>
-                <div class="footer__container__contact-info__address">
+                <div class="footer-container__contact-address">
                     <p>Booking Agent for</p>
                     <p>UK / EU / AU</p>
                 </div>
-                <div class="footer__container__contact-info__email">
+                <div class="footer-container__contact-email">
                     <a href="mailto:">cwhyte@archentertainment.com</a>
                 </div>
             </div>
         </section>
-        <p class="footer__container-copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+        <p class="footer-container__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
     </footer>
     <script src="./scripts/build-shows-page.js"></script>
 </body>
