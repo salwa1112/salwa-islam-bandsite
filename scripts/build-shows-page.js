@@ -96,13 +96,7 @@ function getElement(tagName, className) {
 function addShow(show) {
     const sectionClass = 'shows-section';
 
-    const showsSection = document.querySelector(`.${sectionClass}`);
-
-    let ulShows = document.querySelector(`.${sectionClass}__list`);
-
-    if(!ulShows) {
-        ulShows = getElement('ul', 'shows-section__list');
-    }
+    const ulShows = document.querySelector(`.${sectionClass}__list`);
 
     const listItemNode = getElement('li', `${sectionClass}__list-item`);
     const listContentNode = getElement('div', `${sectionClass}__show`);
@@ -144,12 +138,10 @@ function addShow(show) {
 
     ulShows.appendChild(listItemNode);
 
-    showsSection.appendChild(ulShows);
-
 }
 
 function loadAllShows() {
-    //Add a first header element with empty content
+    //Add a first header element
     headerLabel = {
         date: '',
         venue: '',

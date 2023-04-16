@@ -537,11 +537,11 @@ header {
     padding: 3rem 0rem 1rem 0rem;
   }
 }
-.comments-section__frm {
+.comments-section__frm, .comments-section__comment--error, .comments-section__comment, .comments-section__name {
   flex-wrap: wrap;
   padding-left: 1rem;
 }
-.comments-section__frm input {
+.comments-section__name {
   width: 100%;
   height: 2.25rem;
   border-radius: 0.25rem;
@@ -552,22 +552,33 @@ header {
   border: 0.0625rem solid #E1E1E1;
   background-color: #FAFAFA;
 }
-.comments-section__frm input:focus {
+.comments-section__name:focus {
   border: 0.0625rem solid #323232;
   outline: none;
 }
-.comments-section__frm input::-moz-placeholder {
+.comments-section__name::-moz-placeholder {
   color: black;
 }
-.comments-section__frm input::placeholder {
+.comments-section__name::placeholder {
   color: black;
 }
 @media (min-width: 1280px) {
-  .comments-section__frm input {
+  .comments-section__name {
     height: 2.5rem;
   }
 }
-.comments-section__frm textarea {
+.comments-section__name--error {
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border-style: solid;
+  border: 0.0625rem solid #d22d2d;
+  background-color: #FAFAFA;
+}
+.comments-section__comment {
   width: 100%;
   padding: 0;
   border-radius: 0.25rem;
@@ -579,14 +590,36 @@ header {
   resize: none;
   outline: none;
 }
-.comments-section__frm textarea:focus {
+.comments-section__comment:focus {
   border: 0.0625rem solid #323232;
   outline: none;
 }
-.comments-section__frm textarea::-moz-placeholder {
+.comments-section__comment::-moz-placeholder {
   color: black;
 }
-.comments-section__frm textarea::placeholder {
+.comments-section__comment::placeholder {
+  color: black;
+}
+.comments-section__comment--error {
+  width: 100%;
+  padding: 0;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid #D22D2D;
+  background-color: #FAFAFA;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  resize: none;
+  outline: none;
+}
+.comments-section__comment--error:focus {
+  border: 0.0625rem solid #323232;
+  outline: none;
+}
+.comments-section__comment--error::-moz-placeholder {
+  color: black;
+}
+.comments-section__comment--error::placeholder {
   color: black;
 }
 .comments-section__img {

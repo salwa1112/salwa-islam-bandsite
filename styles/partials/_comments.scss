@@ -48,8 +48,35 @@
     &__frm {
         flex-wrap: wrap;
         padding-left: 1rem;
+    }
 
-        input {
+    &__name {
+        @extend .comments-section__frm;
+
+        width: 100%;
+        height: 2.25rem;
+        border-radius: .25rem;
+        padding: 0.75rem;
+        margin-top: .25rem;
+        margin-bottom: 1rem;
+        border-style: solid;
+        border: 0.0625rem solid $mercury;
+        background-color: $alabaster;
+
+        &:focus {
+            border: 0.0625rem solid $bandsite-black;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: black;
+        }
+
+        @include desktop {
+            height: 2.5rem;
+        }
+
+        &--error {
             width: 100%;
             height: 2.25rem;
             border-radius: .25rem;
@@ -57,44 +84,58 @@
             margin-top: .25rem;
             margin-bottom: 1rem;
             border-style: solid;
-            border: 0.0625rem solid $mercury;
+            border: 0.0625rem solid #d22d2d;
             background-color: $alabaster;
-
-            &:focus {
-                border: 0.0625rem solid $bandsite-black;
-                outline: none;
-            }
-
-            &::placeholder {
-                color: black;
-            }
-
-            @include desktop {
-                height: 2.5rem;
-            }
         }
 
-        textarea {
+    }
+
+    &__comment {
+        @extend .comments-section__frm;
+        
+        width: 100%;
+        padding: 0;
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        border: 1px solid $mercury;
+        background-color: $alabaster;
+        margin-top: .25rem;
+        margin-bottom: 1rem;
+        resize: none;
+        outline: none;
+
+        
+        &:focus {
+            border: 0.0625rem solid $bandsite-black;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: black;
+        }
+
+        &--error {
+            @extend .comments-section__frm;
+
             width: 100%;
             padding: 0;
             border-radius: 0.25rem;
             padding: 0.75rem;
-            border: 1px solid $mercury;
+            border: 1px solid #D22D2D;
             background-color: $alabaster;
             margin-top: .25rem;
             margin-bottom: 1rem;
             resize: none;
             outline: none;
-
-
+        
             &:focus {
                 border: 0.0625rem solid $bandsite-black;
                 outline: none;
             }
-
+    
             &::placeholder {
                 color: black;
-            }
+            }    
         }
     }
 

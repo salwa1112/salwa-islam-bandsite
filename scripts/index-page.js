@@ -48,11 +48,31 @@ function onCommentSubmitted(event) {
     //  Prevent default submit action
     event.preventDefault();
 
-    const currentDate = new Date();
+    //Validation passed, remove any previous error state if present
+    event.target.querySelector("#name").classList.remove("comments-section__name--error");
+    event.target.querySelector("#comment").classList.remove("comments-section__comment--error");
+
+
+    //Form validation check
+    if(!event.target.name.value){
+        event.target.querySelector("#name").classList.toggle(`${event.target.querySelector("#name").className}--error`);
+        return;
+    }
+
+    if(!event.target.comment.value){
+        event.target.querySelector("#comment").classList.toggle(`${event.target.querySelector("#comment").className}--error`);
+        return;
+    }
+
+    
+
+    const currentTime = new Date();
+    
+    
     const comment = {
         img_src: "./assets/images/default.jpg",
         author_name: event.target.name.value,
-        post_date: `${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/${currentDate.getDate().toString().padStart(2, '0')}/${currentDate.getFullYear()}`,
+        post_date: `${currentTime}`,
         description: event.target.comment.value
     };
 
@@ -109,7 +129,7 @@ function displayComment(comment) {
 
     //Add data to the items
     commentHeaderChild_Name.textContent = comment.author_name;
-    commentHeaderChild_PostDate.textContent = comment.post_date;
+    commentHeaderChild_PostDate.textContent = timeAgo(comment.post_date);
     commentContainerChild_Description.textContent = comment.description;
     commentsSectionImage.src = comment.img_src;
     commentsSectionImage.alt = `profile photo of ${comment.author_name}`;
@@ -143,6 +163,40 @@ function getElement(tagName, className) {
     element.classList.add(className);
     return element;
 }
+
+function timeAgo(time){
+    const postTime = new Date(time);
+
+    const timeDifferenceInSeconds = (new Date().getTime()-postTime)/1000;
+    const totalSecondsInAYear = 365*24*3600;
+    const totalSecondsInAMonth = 30*24*3600;
+    const totalSecondsInADay = 24*3600;
+    const totalSecondsInAnHour = 3600;
+    const totalSeconsInAMinute = 60;
+
+    if((totalYears = Math.trunc(timeDifferenceInSeconds / totalSecondsInAYear)) > 0) {
+        return `${totalYears > 1 ? totalYears + ' years' : 'a year'} ago`;
+    }
+
+    if((totalMonths = Math.trunc(timeDifferenceInSeconds  / totalSecondsInAMonth)) > 0){   
+        return `${totalMonths > 1 ? totalMonths + ' months' : 'a month'} ago`;
+    }
+
+    if(totalDays = Math.trunc(timeDifferenceInSeconds/ totalSecondsInADay) > 0){
+        return `${totalDays > 10 ? totalDays +' days' : (totalDays > 1 ? 'a few days' : totalDays + ' day') } ago`;
+    }
+
+    if(totalHours = Math.trunc(timeDifferenceInSeconds/ totalSecondsInAnHour) > 0){
+        return `${totalHours > 5 ? totalDays + ' hours' : (totalHours > 1 ? 'a few hours' : 'an hour') } ago`;
+    }
+
+    if(totalMinutes = Math.trunc(timeDifferenceInSeconds / totalSeconsInAMinute) > 0){
+        return `${totalMinutes > 9 ? totalMinutes + ' minutes' : (totalMinutes > 1 ? 'a few minutes' : 'a minute') } ago`;
+    }
+
+    return timeDifferenceInSeconds > 1 ? 'a few seconds ago' : 'Just now';
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     //load Previous Comments
