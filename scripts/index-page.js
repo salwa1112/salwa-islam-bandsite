@@ -1,41 +1,21 @@
-const allComments = [
-    {
-        img_src: "./assets/images/default.jpg",
-        author_name: "Connor Walton",
-        post_date: "02/17/2021",
-        description: "This is art. This is inexplicable magic\
-                expressed in the purest way, everything\
-                that makes up this majestic work\
-                deserves reverence. Let us appreciate this for what it is and what it contains."
-    },
-    {
-        img_src: "./assets/images/default.jpg",
-        author_name: "Emilie Beach",
-        post_date: "01/09/2021",
-        description: "I feel blessed to have seen them in\
-        person. What a show! They were just\
-        perfection. If there was one day of my\
-        life I could relive, this would be it. What\
-        an incredible day."
-    },
-    {
-        img_src: "./assets/images/default.jpg",
-        author_name: "Miles Acosta",
-        post_date: "12/20/2020",
-        description: "I can t stop listening. Every time I hear\
-        one of their songs - the vocals - it gives\
-        me goosebumps. Shivers straight down\
-        my spine. What a beautiful expression of\
-        creativity. Can t get enough."
-    }
-]
+import BandSiteRestService from './restservice.js'
 
-function loadComments() {
+BandSiteRestService.getAllData('comments')
+.then((response) => {
+    const comments = response.data;
+    loadComments(comments);
+})
+.catch((error) => {
+    console.log("Error fetching comments data ", error);
+});
+
+
+function loadComments(allComments) {
     if (allComments.length === 0) return;
 
     // Sort by date asc, this is to insert the latest comment at the top
     allComments.sort((a, b) => {
-        return new Date(a.post_date).getTime() - new Date(b.post_date).getTime();
+        return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime();
     });
 
 
@@ -54,39 +34,36 @@ function onCommentSubmitted(event) {
 
 
     //Form validation check
-    if(!event.target.name.value){
+    if (!event.target.name.value) {
         event.target.querySelector("#name").classList.toggle(`${event.target.querySelector("#name").className}--error`);
         return;
     }
 
-    if(!event.target.comment.value){
+    if (!event.target.comment.value) {
         event.target.querySelector("#comment").classList.toggle(`${event.target.querySelector("#comment").className}--error`);
         return;
     }
 
-    
-
-    const currentTime = new Date();
-    
-    
-    const comment = {
-        img_src: "./assets/images/default.jpg",
-        author_name: event.target.name.value,
-        post_date: `${currentTime}`,
-        description: event.target.comment.value
+    //Create object 
+    const newComment = {
+        name: event.target.name.value,
+        comment: event.target.comment.value
     };
 
-    //push the new added code to the array
-    allComments.push(comment);
-    //clear previous comments from the page
-    const ulComments = document.querySelector('.comments-section__list');
-    //using replaceChildren() function instead of innerHTML to clear the content
-    ulComments.replaceChildren();
-    //load comments
-    loadComments();
+    //Post comment data
+    BandSiteRestService.postData('comments', newComment)
+    .then((response) => {
+        //Response data is the added comment
+        const addedComment = response.data;
+        displayComment(addedComment);
 
-    //Clear inputs from form
-    clearForm();
+        //Clear form element
+        clearForm();
+    })
+    .catch((error) => {
+        console.log("Somebody handle this ",error);
+    });
+
 }
 
 function displayComment(comment) {
@@ -128,11 +105,11 @@ function displayComment(comment) {
     listItem.appendChild(commentDivider);
 
     //Add data to the items
-    commentHeaderChild_Name.textContent = comment.author_name;
-    commentHeaderChild_PostDate.textContent = timeAgo(comment.post_date);
-    commentContainerChild_Description.textContent = comment.description;
-    commentsSectionImage.src = comment.img_src;
-    commentsSectionImage.alt = `profile photo of ${comment.author_name}`;
+    commentHeaderChild_Name.textContent = comment.name;
+    commentHeaderChild_PostDate.textContent = timeAgo(comment.timestamp);
+    commentContainerChild_Description.textContent = comment.comment;
+    commentsSectionImage.src = './assets/images/default.jpg';
+    commentsSectionImage.alt = `comment section image`;
 
 
     //Add comment to list
@@ -164,50 +141,45 @@ function getElement(tagName, className) {
     return element;
 }
 
-function timeAgo(time){
-    const postTime = new Date(time);
-
-    const timeDifferenceInSeconds = (new Date().getTime()-postTime)/1000;
-    const totalSecondsInAYear = 365*24*3600;
-    const totalSecondsInAMonth = 30*24*3600;
-    const totalSecondsInADay = 24*3600;
+function timeAgo(postTime) {
+   
+    const timeDifferenceInSeconds = (new Date().getTime() - postTime) / 1000;
+    const totalSecondsInAYear = 365 * 24 * 3600;
+    const totalSecondsInAMonth = 30 * 24 * 3600;
+    const totalSecondsInADay = 24 * 3600;
     const totalSecondsInAnHour = 3600;
     const totalSeconsInAMinute = 60;
 
-    if((totalYears = Math.trunc(timeDifferenceInSeconds / totalSecondsInAYear)) > 0) {
+    let totalYears = 0;
+    let totalMonths = 0;
+    let totalDays = 0;
+    let totalHours = 0;
+    let totalMinutes = 0;
+
+    if ((totalYears = Math.trunc(timeDifferenceInSeconds / totalSecondsInAYear)) > 0) {
         return `${totalYears > 1 ? totalYears + ' years' : 'a year'} ago`;
     }
 
-    if((totalMonths = Math.trunc(timeDifferenceInSeconds  / totalSecondsInAMonth)) > 0){   
+    if ((totalMonths = Math.trunc(timeDifferenceInSeconds / totalSecondsInAMonth)) > 0) {
         return `${totalMonths > 1 ? totalMonths + ' months' : 'a month'} ago`;
     }
 
-    if(totalDays = Math.trunc(timeDifferenceInSeconds/ totalSecondsInADay) > 0){
-        return `${totalDays > 10 ? totalDays +' days' : (totalDays > 1 ? 'a few days' : totalDays + ' day') } ago`;
+    if ((totalDays = Math.trunc(timeDifferenceInSeconds / totalSecondsInADay)) > 0) {
+        return `${totalDays > 10 ? totalDays + ' days' : (totalDays > 1 ? 'a few days' : totalDays + ' day')} ago`;
     }
 
-    if(totalHours = Math.trunc(timeDifferenceInSeconds/ totalSecondsInAnHour) > 0){
-        return `${totalHours > 5 ? totalDays + ' hours' : (totalHours > 1 ? 'a few hours' : 'an hour') } ago`;
+    if ((totalHours = Math.trunc(timeDifferenceInSeconds / totalSecondsInAnHour)) > 0) {
+        return `${totalHours > 5 ? totalHours + ' hours' : (totalHours > 1 ? 'a few hours' : 'an hour')} ago`;
     }
 
-    if(totalMinutes = Math.trunc(timeDifferenceInSeconds / totalSeconsInAMinute) > 0){
-        return `${totalMinutes > 9 ? totalMinutes + ' minutes' : (totalMinutes > 1 ? 'a few minutes' : 'a minute') } ago`;
+    if ((totalMinutes = Math.trunc(timeDifferenceInSeconds / totalSeconsInAMinute)) > 0) {
+        return `${totalMinutes > 9 ? totalMinutes + ' minutes' : (totalMinutes > 1 ? 'a few minutes' : 'a minute')} ago`;
     }
 
     return timeDifferenceInSeconds > 1 ? 'a few seconds ago' : 'Just now';
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    //load Previous Comments
-    loadComments();
-
-    const commentButton = document.querySelector('.comments-section__btn');
-    commentButton.addEventListener('click', (event) => {
-        //Stop propagation on button click
-        event.stopPropagation();
-    });
-
     const commentSubmissionForm = document.querySelector('.comments-section__frm');
     commentSubmissionForm.addEventListener('submit', onCommentSubmitted);
 });
