@@ -250,7 +250,7 @@
   font-weight: 600;
   pointer-events: none;
 }
-.shows-section__venue, .shows-section__location {
+.shows-section__place, .shows-section__location {
   font-size: 13px;
   width: 8rem;
   font-stretch: expanded;

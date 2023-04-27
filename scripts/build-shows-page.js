@@ -1,35 +1,47 @@
-const current_shows = [
-    {
-        date: 'Mon Sept 06 2021',
-        venue: 'Ronald Lane',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Tue Sept 21 2021',
-        venue: 'Pier 3 East',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Fri Oct 15 2021 ',
-        venue: 'View Lounge',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Sat Nov 06 2021',
-        venue: 'Hyatt Agency',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Fri Nov 26 2021',
-        venue: 'Moscow Center',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Wed Dec 15 2021',
-        venue: 'Press Club',
-        location: 'San Francisco, CA'
-    }
-]
+// const current_shows = [
+//     {
+//         date: 'Mon Sept 06 2021',
+//         venue: 'Ronald Lane',
+//         location: 'San Francisco, CA'
+//     },
+//     {
+//         date: 'Tue Sept 21 2021',
+//         venue: 'Pier 3 East',
+//         location: 'San Francisco, CA'
+//     },
+//     {
+//         date: 'Fri Oct 15 2021 ',
+//         venue: 'View Lounge',
+//         location: 'San Francisco, CA'
+//     },
+//     {
+//         date: 'Sat Nov 06 2021',
+//         venue: 'Hyatt Agency',
+//         location: 'San Francisco, CA'
+//     },
+//     {
+//         date: 'Fri Nov 26 2021',
+//         venue: 'Moscow Center',
+//         location: 'San Francisco, CA'
+//     },
+//     {
+//         date: 'Wed Dec 15 2021',
+//         venue: 'Press Club',
+//         location: 'San Francisco, CA'
+//     }
+// ]
+
+import BandSiteRestService from './restservice.js'
+
+BandSiteRestService.getAllData('showdates')
+.then((response) => {
+    const showDates = response.data;
+    console.log(response.data);
+    loadAllShows(showDates);
+})
+.catch((error) => {
+    console.log("Error fetching show data ", error);
+});
 
 function setupListItemClickStyle() {
     const listItems = document.querySelectorAll('.shows-section__list-item');
@@ -110,6 +122,7 @@ function addShow(show) {
 
     //Load all the values
     for (const [key, value] of Object.entries(show)) {
+        if (key !== 'id'){
         //console.log(new Date().getTime(),key,value);
         const listContentChild = getElement('div', `${sectionClass}__show-details`);
         const listContentChildLbl = getElement('h2', `${sectionClass}__lbl`);
@@ -117,13 +130,15 @@ function addShow(show) {
 
         listContentChildValue.id = key;
 
-        listContentChildLbl.textContent = key.toUpperCase();
-        listContentChildValue.textContent = value;
+        listContentChildLbl.textContent = key === 'place' ? "VENUE" : key.toUpperCase();
+
+        listContentChildValue.textContent = key === 'date' && value !== '' ? new Date(value).toDateString() : value;
 
         listContentChild.appendChild(listContentChildLbl);
         listContentChild.appendChild(listContentChildValue);
 
         listContentNode.appendChild(listContentChild);
+        }
 
     }
 
@@ -140,24 +155,36 @@ function addShow(show) {
 
 }
 
-function loadAllShows() {
+function loadAllShows(showDates) {
     //Add a first header element
-    headerLabel = {
+    const headerLabel = {
         date: '',
-        venue: '',
+        place: '',
         location: '',
     }
 
     addShow(headerLabel);
 
-    current_shows.forEach(show => {
+    showDates.forEach(show => {
         addShow(show);
     });
 }
 
+function returnDateFormat(date){
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log(new Date().getTime(), "Dom content loaded");
-    loadAllShows();
 });
 
