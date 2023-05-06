@@ -748,6 +748,29 @@ header {
     margin-right: 30vw;
   }
 }
+.comments-section__social {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-bottom: 0.5rem;
+}
+.comments-section__likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.comments-section__likes-count {
+  font-size: 0.875rem;
+  padding-left: 4px;
+  padding-top: 2px;
+  margin: 0;
+}
+.comments-section__icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 0.5rem;
+}
 
 @font-face {
   font-family: "Avenir", sans-serif;

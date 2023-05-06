@@ -86,6 +86,18 @@ function displayComment(comment) {
     const commentHeaderChild_Name = getElement('h3', 'comments-section__list-item-author-name');
     const commentHeaderChild_PostDate = getElement('p', 'comments-section__list-item-post-date');
     const commentContainerChild_Description = getElement('p', 'comments-section__list-item-description');
+    
+    const commentSectionSocial = getElement('div','comments-section__social');
+    const commentSectionSocial_LikesDiv = getElement('div', 'comments-section__likes');
+    const commentSectionSocial_LikeCount = getElement('p', 'comments-section__likes-count');
+    const commentSectionSocial_LikeIcon = getElement('img', 'comments-section__icon');
+    const commentSectionSocial_DeleteIcon = getElement('img', 'comments-section__icon');
+
+    commentSectionSocial_LikesDiv.appendChild(commentSectionSocial_LikeIcon);
+    commentSectionSocial_LikesDiv.appendChild(commentSectionSocial_LikeCount);
+    commentSectionSocial.appendChild(commentSectionSocial_LikesDiv);
+    commentSectionSocial.appendChild(commentSectionSocial_DeleteIcon)
+
     const commentDivider = getElement('hr', 'comments-section__divider');
 
     //Append header items to the header container
@@ -102,6 +114,7 @@ function displayComment(comment) {
 
     //Add to the list item
     listItem.appendChild(listItemContentRoot);
+    listItem.appendChild(commentSectionSocial);
     listItem.appendChild(commentDivider);
 
     //Add data to the items
@@ -110,6 +123,9 @@ function displayComment(comment) {
     commentContainerChild_Description.textContent = comment.comment;
     commentsSectionImage.src = './assets/images/default.jpg';
     commentsSectionImage.alt = `comment section image`;
+    commentSectionSocial_LikeCount.textContent = '0 likes'
+    commentSectionSocial_DeleteIcon.src = './assets/icons/png/delete.png';
+    commentSectionSocial_LikeIcon.src = './assets/icons/png/like.png';
 
 
     //Add comment to list
