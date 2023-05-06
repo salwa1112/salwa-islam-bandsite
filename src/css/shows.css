@@ -1,0 +1,297 @@
+@font-face {
+  font-family: "Avenir", sans-serif;
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+}
+.hero-section-shows {
+  display: flex;
+  flex-direction: column;
+  font-family: "Avenir", sans-serif;
+}
+.hero-section-shows__img {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 90vw;
+  margin-top: 6rem;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__img {
+    height: 85vw;
+    margin-top: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__img {
+    height: 50vw;
+    margin-top: 6rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 50% 35%;
+       object-position: 50% 35%;
+  }
+}
+.hero-section-shows__album-container {
+  width: 100%;
+  height: 90vw;
+  position: absolute;
+  color: white;
+  top: 6rem;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 768px) {
+  .hero-section-shows__album-container {
+    height: 85vw;
+    top: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__album-container {
+    height: 50vw;
+    margin-top: 3.4375rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.hero-section-shows__album-title {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 300;
+  padding: 15dvw 1rem 1rem 1rem;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__album-title {
+    font-size: 2rem;
+    padding: 10rem 1rem 1rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__album-title {
+    font-size: 1.5rem;
+    padding: 14rem 1rem 0rem 8rem;
+    font-weight: 600;
+  }
+}
+.hero-section-shows__hero-title {
+  padding: 0rem 1rem 1rem 1rem;
+  font-size: 24px;
+  font-weight: 400;
+  word-wrap: break-word;
+  width: 75%;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__hero-title {
+    font-size: 4rem;
+    width: 80%;
+    font-weight: 600;
+    padding: 0rem 1rem 1rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__hero-title {
+    font-weight: 300;
+    width: 45vw;
+    padding: 1rem 3rem 0rem 2rem;
+    word-wrap: break-word;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__soundcloud-container {
+    display: flex;
+    flex-direction: row;
+    padding-right: 6rem;
+    padding-left: 6rem;
+    align-items: center;
+  }
+}
+.hero-section-shows__soundcloud {
+  width: 100%;
+  height: 110px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  .hero-section-shows__soundcloud {
+    width: 69%;
+    height: 177px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-section-shows__soundcloud {
+    width: 35vw;
+    height: 11.25rem;
+    margin-top: 0rem;
+    justify-content: flex-end;
+    margin-left: 5rem;
+  }
+}
+
+@font-face {
+  font-family: "Avenir", sans-serif;
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+}
+.shows-section, .shows-section__show {
+  display: flex;
+  flex-direction: column;
+  font-family: "Avenir", sans-serif;
+  padding-bottom: 1rem;
+}
+@media (min-width: 1280px) {
+  .shows-section, .shows-section__show {
+    flex-direction: row;
+    justify-content: start;
+    padding: 0 5rem 3rem 5rem;
+  }
+}
+.shows-section__show {
+  padding: 0;
+  margin: 0 1rem 0 1rem;
+}
+@media (min-width: 768px) {
+  .shows-section__show {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0rem 0rem 0rem;
+  }
+}
+.shows-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 2rem 1rem 2rem 1rem;
+}
+@media (min-width: 768px) {
+  .shows-section__title {
+    font-size: 2.5rem;
+    padding: 4rem 1rem 2rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .shows-section__title {
+    padding: 4rem 10rem 2rem 3rem;
+  }
+}
+.shows-section__list {
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 1280px) {
+  .shows-section__list {
+    width: 100%;
+    padding-top: 3rem;
+  }
+}
+.shows-section__list-item:first-child {
+  display: none;
+}
+@media (min-width: 768px) {
+  .shows-section__list-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: start;
+  }
+  .shows-section__list-item:first-child {
+    display: block;
+    height: 4.375rem;
+  }
+  .shows-section__list-item h2 {
+    display: none;
+  }
+  .shows-section__list-item:first-child h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    width: 8rem;
+  }
+  .shows-section__list-item:first-child button {
+    visibility: hidden;
+  }
+  .shows-section__list-item:first-child hr {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .shows-section__list-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .shows-section__list-item:hover {
+    background-color: #fafafa;
+  }
+}
+.shows-section__show-details {
+  padding: 1rem 0 0.5rem 0rem;
+  pointer-events: none;
+}
+.shows-section__lbl {
+  font-size: 0.6875rem;
+  font-stretch: expanded;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #AFAFAF;
+  padding-bottom: 1rem;
+  pointer-events: none;
+}
+.shows-section__date {
+  font-size: 13px;
+  width: 8rem;
+  font-stretch: expanded;
+  font-weight: 600;
+  pointer-events: none;
+}
+.shows-section__place, .shows-section__location {
+  font-size: 13px;
+  width: 8rem;
+  font-stretch: expanded;
+  font-weight: 300;
+  pointer-events: none;
+}
+.shows-section__buy-button {
+  margin: 1rem 0rem 0 0rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  background-color: #323232;
+  color: white;
+  border-radius: 0.25rem;
+  font-stretch: ultra-expanded;
+  box-shadow: none;
+}
+.shows-section__buy-button:hover {
+  background-color: black;
+}
+@media (min-width: 768px) {
+  .shows-section__buy-button {
+    margin: 0;
+    padding: 0 2rem 0 2rem;
+  }
+}
+.shows-section__divider {
+  border: 0.0625rem solid #E1E1E1;
+  margin-top: 1rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .shows-section__divider {
+    margin: 1rem 1rem 0 0rem;
+  }
+}
+
+.selected {
+  background-color: #E1E1E1;
+}
+.selected:hover {
+  background-color: #E1E1E1;
+}/*# sourceMappingURL=shows.css.map */

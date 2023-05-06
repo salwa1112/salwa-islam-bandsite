@@ -68,8 +68,8 @@ function onCommentSubmitted(event) {
 
 function onLikeCommentClicked(event) {
     event.stopPropagation();
-    const listNode = event.target.parentElement.parentElement.parentElement;
     const likesParent = event.target.parentElement;
+    const listNode = likesParent.parentElement.parentElement;
     const likeCountElement = likesParent.querySelector('.comments-section__likes-count');
     const id = listNode.id;
 
@@ -77,7 +77,6 @@ function onLikeCommentClicked(event) {
     BandSiteRestService.likeComment(id)
         .then((response) => {
             const comment = response.data;
-            //console.log(comment);
             //Need to update the new like count
             likeCountElement.textContent = `${comment.likes} likes`;
         })
@@ -96,7 +95,7 @@ function onDeleteCommentClicked(event) {
 
     BandSiteRestService.deleteComment(id)
         .then((response) => {
-            const comment = response.data;
+            //to display a message before removing the comment from the list
             listNode.replaceChildren();
             const textElement = getElement('p', 'comments-section__deleted');
             textElement.textContent = "Comment deleted!"
@@ -104,6 +103,7 @@ function onDeleteCommentClicked(event) {
             listNode.appendChild(textElement);
             listNode.appendChild(commentDivider);
 
+            //the comment will not deleted instantly as using setTimeOut
             setTimeout(() => {
                 ulList.removeChild(listNode);
             }, 1500);
@@ -167,6 +167,7 @@ function displayComment(comment) {
     listItem.appendChild(commentSectionSocial);
     listItem.appendChild(commentDivider);
 
+    //set the id which will be coming from api
     listItem.id = comment.id;
 
     //Add data to the items
@@ -223,7 +224,7 @@ function timeAgo(postTime) {
     const totalSecondsInAMonth = 30 * 24 * 3600;
     const totalSecondsInADay = 24 * 3600;
     const totalSecondsInAnHour = 3600;
-    const totalSeconsInAMinute = 60;
+    const totalSecondInAMinute = 60;
 
     let totalYears = 0;
     let totalMonths = 0;
@@ -247,7 +248,7 @@ function timeAgo(postTime) {
         return `${totalHours > 5 ? totalHours + ' hours' : (totalHours > 1 ? 'a few hours' : 'an hour')} ago`;
     }
 
-    if ((totalMinutes = Math.trunc(timeDifferenceInSeconds / totalSeconsInAMinute)) > 0) {
+    if ((totalMinutes = Math.trunc(timeDifferenceInSeconds / totalSecondInAMinute)) > 0) {
         return `${totalMinutes > 9 ? totalMinutes + ' minutes' : (totalMinutes > 1 ? 'a few minutes' : 'a minute')} ago`;
     }
 
