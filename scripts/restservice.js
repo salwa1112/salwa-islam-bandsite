@@ -16,8 +16,16 @@ function postData(url, data) {
     return axiosInstance.post(url, data);
 }
 
+function likeComment(id){
+    return axiosInstance.put(`comments/${id}/like`);
+}
 
-const BandSiteRestService =  {  getAllData, postData  };
+function deleteComment(id) {
+    return axiosInstance.delete(`comments/${id}`);
+}
+
+
+const BandSiteRestService =  {  getAllData, postData, likeComment, deleteComment  };
 
 
 export default BandSiteRestService;

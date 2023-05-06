@@ -1,13 +1,13 @@
 import BandSiteRestService from './restservice.js'
 
 BandSiteRestService.getAllData('comments')
-.then((response) => {
-    const comments = response.data;
-    loadComments(comments);
-})
-.catch((error) => {
-    console.log("Error fetching comments data ", error);
-});
+    .then((response) => {
+        const comments = response.data;
+        loadComments(comments);
+    })
+    .catch((error) => {
+        console.log("Error fetching comments data ", error);
+    });
 
 
 function loadComments(allComments) {
@@ -52,17 +52,67 @@ function onCommentSubmitted(event) {
 
     //Post comment data
     BandSiteRestService.postData('comments', newComment)
-    .then((response) => {
-        //Response data is the added comment
-        const addedComment = response.data;
-        displayComment(addedComment);
+        .then((response) => {
+            //Response data is the added comment
+            const addedComment = response.data;
+            displayComment(addedComment);
 
-        //Clear form element
-        clearForm();
-    })
-    .catch((error) => {
-        console.log("Somebody handle this ",error);
-    });
+            //Clear form element
+            clearForm();
+        })
+        .catch((error) => {
+            console.log("Somebody handle this ", error);
+        });
+
+}
+
+function onLikeCommentClicked(event) {
+    event.stopPropagation();
+    const listNode = event.target.parentElement.parentElement.parentElement;
+    const likesParent = event.target.parentElement;
+    const likeCountElement = likesParent.querySelector('.comments-section__likes-count');
+    const id = listNode.id;
+
+
+    BandSiteRestService.likeComment(id)
+        .then((response) => {
+            const comment = response.data;
+            //console.log(comment);
+            //Need to update the new like count
+            likeCountElement.textContent = `${comment.likes} likes`;
+        })
+        .catch((error) => {
+            console.log("Error ", error);
+        });
+
+
+}
+
+function onDeleteCommentClicked(event) {
+    event.stopPropagation();
+    const listNode = event.target.parentElement.parentElement;
+    const ulList = listNode.parentElement;
+    const id = listNode.id;
+
+    BandSiteRestService.deleteComment(id)
+        .then((response) => {
+            const comment = response.data;
+            listNode.replaceChildren();
+            const textElement = getElement('p', 'comments-section__deleted');
+            textElement.textContent = "Comment deleted!"
+            const commentDivider = getElement('hr', 'comments-section__divider');
+            listNode.appendChild(textElement);
+            listNode.appendChild(commentDivider);
+
+            setTimeout(() => {
+                ulList.removeChild(listNode);
+            }, 1500);
+
+        })
+        .catch((error) => {
+            console.log("Error ", error);
+        });
+
 
 }
 
@@ -86,12 +136,12 @@ function displayComment(comment) {
     const commentHeaderChild_Name = getElement('h3', 'comments-section__list-item-author-name');
     const commentHeaderChild_PostDate = getElement('p', 'comments-section__list-item-post-date');
     const commentContainerChild_Description = getElement('p', 'comments-section__list-item-description');
-    
-    const commentSectionSocial = getElement('div','comments-section__social');
+
+    const commentSectionSocial = getElement('div', 'comments-section__social');
     const commentSectionSocial_LikesDiv = getElement('div', 'comments-section__likes');
     const commentSectionSocial_LikeCount = getElement('p', 'comments-section__likes-count');
     const commentSectionSocial_LikeIcon = getElement('img', 'comments-section__icon');
-    const commentSectionSocial_DeleteIcon = getElement('img', 'comments-section__icon');
+    const commentSectionSocial_DeleteIcon = getElement('img', 'comments-section__icon-delete');
 
     commentSectionSocial_LikesDiv.appendChild(commentSectionSocial_LikeIcon);
     commentSectionSocial_LikesDiv.appendChild(commentSectionSocial_LikeCount);
@@ -117,15 +167,24 @@ function displayComment(comment) {
     listItem.appendChild(commentSectionSocial);
     listItem.appendChild(commentDivider);
 
+    listItem.id = comment.id;
+
     //Add data to the items
     commentHeaderChild_Name.textContent = comment.name;
     commentHeaderChild_PostDate.textContent = timeAgo(comment.timestamp);
     commentContainerChild_Description.textContent = comment.comment;
     commentsSectionImage.src = './assets/images/default.jpg';
     commentsSectionImage.alt = `comment section image`;
-    commentSectionSocial_LikeCount.textContent = '0 likes'
-    commentSectionSocial_DeleteIcon.src = './assets/icons/png/delete.png';
+    commentSectionSocial_LikeCount.textContent = comment.likes + ' likes';
+    commentSectionSocial_DeleteIcon.src = './assets/icons/png/delete-alt.png';
+    commentSectionSocial_DeleteIcon.alt = 'click to delete this comment'
     commentSectionSocial_LikeIcon.src = './assets/icons/png/like.png';
+    commentSectionSocial_LikeIcon.alt = 'click to like this comment'
+
+    commentSectionSocial_LikeIcon.addEventListener('click', onLikeCommentClicked);
+    commentSectionSocial_DeleteIcon.addEventListener('click', onDeleteCommentClicked);
+
+
 
 
     //Add comment to list
@@ -158,7 +217,7 @@ function getElement(tagName, className) {
 }
 
 function timeAgo(postTime) {
-   
+
     const timeDifferenceInSeconds = (new Date().getTime() - postTime) / 1000;
     const totalSecondsInAYear = 365 * 24 * 3600;
     const totalSecondsInAMonth = 30 * 24 * 3600;
